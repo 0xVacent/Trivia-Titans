@@ -1,0 +1,62 @@
+.playerName {
+    border: 0.3125rem solid black;
+
+    background-color: #35f7ff;
+    border-radius: 2.5rem;
+    padding: 0;
+    height: 25rem;
+    width: 37.5rem;
+    text-align: center;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+    overflow: hidden;
+}
+
+.playerName h2 {
+    font-family: 'GreekFreak';
+    color: black;
+    font-size: 3rem;
+    -webkit-text-stroke-color: gray;
+    -webkit-text-stroke-width: 0.0938rem;
+}
+
+.playerName input {
+    width: 31.25rem;
+    height: 3.125rem;
+    padding: 0 1.25rem; /* Añade 20px de padding a los lados */
+    padding-top: 0.3125rem;
+    font-size: 3rem;
+    border-radius: 3.125rem;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: "GreekFreak";
+    border: 0.1875rem solid black;
+    -webkit-text-stroke-color: gray;
+    -webkit-text-stroke-width: 0.0938rem; /* Asegura que el padding no afecte el tamaño total del input */
+}
+
+.startGame {
+    background-color: #fda839;
+    padding: 0.625rem 1.25rem;
+    padding-top: 1.25rem;
+    border-radius: 2.5rem;
+    display: inline-block;
+    width: 25rem;
+    height: 3.125rem;
+    overflow: hidden;
+    border: 0.3125rem solid black;
+    margin-top: 2.5rem;
+    font-size: 3rem;
+    font-family: 'GreekFreak';
+    transition: transform 0.3s;
+    text-decoration: none;
+    color: black;
+    -webkit-text-stroke-color: gray;
+    -webkit-text-stroke-width: 0.0938rem;
+
+}
+
+.startGame:hover {
+    transform: scale(1.05);
+
+}

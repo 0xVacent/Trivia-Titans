@@ -1,0 +1,127 @@
+.contador {
+    background-color: bisque;
+    height: 6.25rem;
+    width: 6.25rem;
+    position: absolute;
+    border: 0.3125rem solid black;
+    border-radius: 6.25rem;
+    top: 9.375rem;
+    left: 68.75rem;
+    border-style: dashed;
+}
+
+.contador h2 {
+    margin-top: 1.5625rem;
+    font-size: 3rem;
+    font-family: 'Cinzel' serif;
+    color: black;
+    -webkit-text-stroke-color: gray;
+    -webkit-text-stroke-width: 0.0625rem;
+}
+
+.pregunta {
+    border: 0.3125rem solid black;
+    background-color: #fda839;
+    border-radius: 2.5rem;
+    height: 6.25rem;
+    width: 43.75rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+    overflow: hidden;
+}
+
+.pregunta h2 {
+    margin-top: 0.625rem;
+    margin-bottom: 0.625rem;
+    font-family: 'Cinzel' serif;
+    font-size: 1.7rem;
+    color: black;
+    -webkit-text-stroke-color: gray;
+    -webkit-text-stroke-width: 0.0375rem;
+}
+
+.respuestas li {
+    border: 0.3125rem solid black;
+    position: relative;
+    left: -0.9375rem;
+    background-color: #35f7ff;
+    border-radius: 2.5rem;
+    height: 5rem;
+    width: 43.75rem;
+    text-align: center;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+    overflow: hidden;
+    margin-top: 1.25rem;
+    cursor: pointer;
+}
+
+.respuestas li:hover {
+    transform: scale(1.05);
+}
+
+.respuestas li h2 {
+    font-family: 'Cinzel' serif;
+    font-size: 1.7rem;
+    color: black;
+    -webkit-text-stroke-color: gray;
+    -webkit-text-stroke-width: 0.0375rem;
+}
+
+.respuestas li.correcta {
+    background-color: rgb(14, 189, 14);
+    cursor: default;
+}
+
+.respuestas li.incorrecta {
+    background-color: rgb(255, 0, 0);
+    cursor: default;
+}
+
+/*
+.respuestas2 li {
+    border: 0.3125rem solid black;
+
+    position: relative;
+    left: -0.9375rem;
+    background-color: rgb(255, 0, 0);
+    border-radius: 2.5rem;
+    height: 5rem;
+    width: 43.75rem;
+    text-align: center;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+    overflow: hidden;
+    margin-top: 1.25rem;
+
+}
+.respuestas2 li:nth-child(1) {
+    border: 0.3125rem solid black;
+
+    position: relative;
+    left: -0.9375rem;
+    background-color: rgb(14, 189, 14);
+    border-radius: 2.5rem;
+    height: 5rem;
+    width: 43.75rem;
+    text-align: center;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+    overflow: hidden;
+    margin-top: 1.25rem;
+
+}
+
+.respuestas2 li:hover {
+    transform: scale(1.05);
+}
+.respuestas2 li h2{
+
+        font-family: 'Cinzel' serif;
+    font-size: 1.7rem;
+    color: black;
+    -webkit-text-stroke-color: gray;
+    -webkit-text-stroke-width: 0.0375rem;
+}
+
+*/

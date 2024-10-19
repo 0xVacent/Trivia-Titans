@@ -1,0 +1,41 @@
+<div class="contenedor">
+    <a routerLink="/"><img class="logo2" src="/img/Logo-Trivia-Titans.png" alt="logo"></a>
+
+    <!-- Contenedor donde se agregan los jugadores cuando se clickea el boton para agregar -->
+    <div id="players-container">
+        @for (jugador of arrayJugadores; track $index) {
+        <div class="player">
+            <input type="text" [placeholder]="'Player ' + ($index+1) + ' Name'" class="player-name" [(ngModel)]="arrayJugadores[$index].nombre">
+            <div class="color-picker">
+                <div class="color-option red" (click)="seleccionarColor($index, 'red')"
+                    [ngClass]="{'selected': arrayJugadores[$index].color === 'red', 'disabled': coloresUsados.includes('red')}">
+                </div>
+                <div class="color-option blue" (click)="seleccionarColor($index, 'blue')"
+                    [ngClass]="{'selected': arrayJugadores[$index].color === 'blue', 'disabled': coloresUsados.includes('blue')}">
+                </div>
+                <div class="color-option green" (click)="seleccionarColor($index, 'green')"
+                    [ngClass]="{'selected': arrayJugadores[$index].color === 'green', 'disabled': coloresUsados.includes('green')}">
+                </div>
+                <div class="color-option yellow"
+                    (click)="seleccionarColor($index, 'yellow')"
+                    [ngClass]="{'selected': arrayJugadores[$index].color === 'yellow', 'disabled': coloresUsados.includes('yellow')}">
+                </div>
+            </div>
+            <button class="delete-btn" (click)="eliminarJugador($index)">🗑️</button>
+        </div>
+        }
+    </div>
+
+     <!-- Boton para empezar la partida (siempre y cuando sean 2 jugadores) -->
+    @if (arrayJugadores.length >= 2) {
+        <a routerLink="/pregunta" id="start-game-btn">
+            <h2>Start Game</h2>
+         </a>
+    }
+
+    <!-- Botón para agregar otro jugador -->
+    @if (arrayJugadores.length < 4) {
+        <button id="add-player-btn" (click)="agregarJugador()">+</button>
+    }
+    
+</div>

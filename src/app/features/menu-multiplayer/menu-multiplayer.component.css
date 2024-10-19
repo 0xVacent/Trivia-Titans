@@ -1,0 +1,161 @@
+#players-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 columnas de tamaño igual */
+    grid-gap: 1.25rem;
+    /* Espacio entre los cuadros */
+    margin: 1.25rem auto;
+    /* Centra el contenedor */
+    max-width: 37.5rem;
+    /* Anchura máxima del contenedor */
+}
+
+
+#add-player-btn {
+    display: block;
+    margin: 1.25rem auto;
+    padding: 0.625rem 1.25rem;
+    font-size: 1.5rem;
+    border: 0.125rem solid black;
+    border-radius: 0.625rem;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+
+}
+
+#add-player-btn:hover {
+    background-color: #45a049;
+    transform: scale(1.15);
+}
+
+
+#start-game-btn {
+    background-color: #fda839;
+    border-radius: 1.5625rem;
+    border: 0.3125rem solid black;
+    height: 5rem;
+    width: 18.75rem;
+    transition: 0.3s;
+    color: black;
+    text-align: center;
+
+}
+
+#start-game-btn h2 {
+
+    font-size: 2rem;
+    font-family: 'GreekFreak';
+    -webkit-text-stroke-color: gray;
+    -webkit-text-stroke-width: 0.0625rem;
+    transition: 0.3s;
+    color: black;
+    text-align: center;
+
+}
+
+#start-game-btn:hover {
+    transform: scale(1.05);
+}
+
+
+/*Jugadores que se añaden cuando se toca el boton de añadir*/
+.player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.25rem;
+    border: 0.3125rem solid black;
+    border-radius: 0.625rem;
+    background-color: #35f7ff;
+    position: relative;
+}
+
+.player-name {
+    border: 0.125rem solid black;
+
+    font-family: 'GreekFreak';
+    text-align: center;
+    padding: 0 1.25rem;
+    /* Añade 20px de padding a los lados */
+    padding-top: 0.3125rem;
+    border-radius: 1.25rem;
+    width: 60%;
+    margin-bottom: 1.25rem;
+    font-size: 1.5rem;
+    -webkit-text-stroke-color: gray;
+    -webkit-text-stroke-width: 0.0625rem;
+    position: relative;
+    left: -0.625rem;
+}
+
+.color-picker {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    margin-bottom: 0.625rem;
+}
+
+.color-option {
+    width: 1.875rem;
+    height: 1.875rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+    border: 0.125rem solid black;
+}
+
+.color-option:hover {
+    transform: scale(1.15);
+}
+
+.color-option.red {
+    background-color: red;
+}
+
+.color-option.blue {
+    background-color: blue;
+}
+
+.color-option.green {
+    background-color: green;
+}
+
+.color-option.yellow {
+    background-color: yellow;
+}
+
+/* Color resaltado */
+.color-option.selected {
+    border: 0.1875rem solid black;
+    /* Añade un borde alrededor del color seleccionado */
+    width: 1rem;
+    height: 1rem;
+    /* Achico el color que selecciona el jugador asi queda mas claro :)*/
+}
+
+/* Color deshabilitado para otros jugadores */
+.color-option.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    /* Evita que se pueda hacer clic en colores deshabilitados */
+}
+
+.delete-btn {
+    border: 0.125rem solid black;
+    border-radius: 1.25rem;
+    position: absolute;
+    top: 1.125rem;
+    right: 0.3125rem;
+    background-color: #fda839;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: 0.3s;
+
+}
+
+.delete-btn:hover {
+    transform: scale(1.15);
+}
