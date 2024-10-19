@@ -1,0 +1,71 @@
+@font-face {
+    font-family: 'GreekFreak';
+    src: url('/fonts/Greek-Freak.ttf');
+}
+
+:root {
+    --colorFondo: #496687;
+}
+
+body {
+    background-color: var(--colorFondo);
+}
+
+body::before {
+    text-align: center;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/img/fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.22;
+    /* Controla el nivel de transparencia de la imagen */
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    /* Para que esté detrás del contenido */
+}
+
+.container {    /*en menu-principal, pregunta y respuesta*/
+    text-align: center;
+    color: white;
+}
+
+
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    /* Coloca los elementos uno debajo del otro */
+    align-items: center;
+    /* Centra horizontalmente */
+    gap: 1.25rem;
+    /* Espacio entre la pregunta y las respuestas */
+    margin-bottom: 2.5rem;
+    height: 100vh;
+    margin-top: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Logo */
+.logo2 {
+    display: block;
+    margin: 0 auto;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    height: auto;
+    width: 18.75rem;
+    transition: transform 0.3s;
+
+}
+
+.logo2:hover {
+    transform: scale(1.05);
+}

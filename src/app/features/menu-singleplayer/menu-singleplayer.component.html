@@ -1,0 +1,14 @@
+<div class="contenedor">
+    <a routerLink="/"><img class="logo2" src="/img/Logo-Trivia-Titans.png" alt="logo"></a>
+    <div class="playerName">
+        <h2>Wait right there, Warrior. Tell us your name</h2>
+        <input type="text" [(ngModel)]="nombreJugador">
+
+        <!-- si el jugador ingreso un nombre, se habilita el boton de empezar la partida -->
+        @if (nombreJugador.length > 0) {
+            <div><a routerLink="/pregunta" class="startGame">Start Game</a></div>
+        }
+
+    </div>
+</div>
+

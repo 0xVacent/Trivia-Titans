@@ -1,0 +1,23 @@
+<div class="container">
+    <a routerLink="/"><img class="logo2" src="/img/Logo-Trivia-Titans.png" alt="logo"></a>
+    <div class="contador">
+        <h2>{{contador}}</h2>
+    </div>
+    <div class="contenedor">
+        <div class="pregunta">
+            <h2>{{triviaResponse.pregunta}}</h2>
+        </div>
+        <ul class="respuestas">
+            @for (resp of triviaResponse.respuestas; track $index) {
+            <li (click)="seleccionarRespuesta()"
+                [ngClass]="{
+                    'correcta': respuestaSeleccionada && resp.isCorrect,
+                    'incorrecta': respuestaSeleccionada && !resp.isCorrect
+                    }">
+                <a>
+                    <h2>{{resp.texto}}</h2>
+                </a>
+            </li>
+            }
+        </ul>
+    </div>
