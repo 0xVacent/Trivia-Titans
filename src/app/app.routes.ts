@@ -3,7 +3,7 @@ import { MenuPrincipalComponent } from './features/menu-principal/menu-principal
 import { MenuSingleplayerComponent } from './features/menu-singleplayer/menu-singleplayer.component';
 import { TopScorersComponent } from './features/top-scorers/top-scorers.component';
 import { MenuMultiplayerComponent } from './features/menu-multiplayer/menu-multiplayer.component';
-import { PreguntaComponent } from './shared/pregunta/pregunta.component';
+import { SingleplayerGamePageComponent } from './pages/singleplayer-game-page/singleplayer-game-page.component';
 
 export const routes: Routes = [
     {
@@ -23,8 +23,8 @@ export const routes: Routes = [
         component: TopScorersComponent
     },
     {
-        path: "pregunta",
-        component: PreguntaComponent
+        path: "singleplayer-game",
+        component: SingleplayerGamePageComponent
     },
     {
         path: "**",
