@@ -28,9 +28,11 @@
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
     transition: transform 0.3s;
     overflow: hidden;
+    margin: 0 auto;
 }
 
 .pregunta h2 {
+    
     margin-top: 0.625rem;
     margin-bottom: 0.625rem;
     font-family: 'Cinzel' serif;
@@ -38,6 +40,9 @@
     color: black;
     -webkit-text-stroke-color: gray;
     -webkit-text-stroke-width: 0.0375rem;
+}
+.respuestas{
+    margin-top: 0;
 }
 
 .respuestas li {
@@ -52,7 +57,7 @@
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
     transition: transform 0.3s;
     overflow: hidden;
-    margin-top: 1.25rem;
+    margin-top: 1rem;
     cursor: pointer;
 }
 
@@ -78,50 +83,29 @@
     cursor: default;
 }
 
-/*
-.respuestas2 li {
+.button {
     border: 0.3125rem solid black;
-
     position: relative;
-    left: -0.9375rem;
-    background-color: rgb(255, 0, 0);
+    background-color: #35f7ff;
     border-radius: 2.5rem;
-    height: 5rem;
-    width: 43.75rem;
+    padding: 0;
+    height: 80px;
+    width: 400px;
     text-align: center;
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s;
+    transition: transform 0.3s ease;
     overflow: hidden;
-    margin-top: 1.25rem;
-
+    top: -20px;
 }
-.respuestas2 li:nth-child(1) {
-    border: 0.3125rem solid black;
-
-    position: relative;
-    left: -0.9375rem;
-    background-color: rgb(14, 189, 14);
-    border-radius: 2.5rem;
-    height: 5rem;
-    width: 43.75rem;
-    text-align: center;
-    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s;
-    overflow: hidden;
-    margin-top: 1.25rem;
-
-}
-
-.respuestas2 li:hover {
-    transform: scale(1.05);
-}
-.respuestas2 li h2{
-
-        font-family: 'Cinzel' serif;
-    font-size: 1.7rem;
+.button h2{
+    font-family: 'Cinzel';
+    font-size: 2rem;
     color: black;
     -webkit-text-stroke-color: gray;
-    -webkit-text-stroke-width: 0.0375rem;
+    -webkit-text-stroke-width: 0.0375rem; 
+    margin:0 auto;
 }
+.button:hover{
+    transform: scale(1.05);
 
-*/
+}

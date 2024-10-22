@@ -5,19 +5,23 @@
     </div>
     <div class="contenedor">
         <div class="pregunta">
-            <h2>{{triviaResponse.pregunta}}</h2>
+            <h2>{{decodeHtml(pregunta.pregunta)}}</h2>
         </div>
         <ul class="respuestas">
-            @for (resp of triviaResponse.respuestas; track $index) {
-            <li (click)="seleccionarRespuesta()"
-                [ngClass]="{
-                    'correcta': respuestaSeleccionada && resp.isCorrect,
-                    'incorrecta': respuestaSeleccionada && !resp.isCorrect
+            @for (resp of pregunta.respuestas; track $index) {
+            <li (click)="seleccionarRespuesta(resp)" [ngClass]="{
+                    'correcta': isRespondida && resp.isCorrect,
+                    'incorrecta': isRespondida && !resp.isCorrect
                     }">
                 <a>
-                    <h2>{{resp.texto}}</h2>
+                    <h2>{{decodeHtml(resp.texto)}}</h2>
                 </a>
             </li>
             }
         </ul>
+
+        @if(isRespondida) {
+            <button class="button" (click)="siguientePregunta()"><h2>Siguiente pregunta</h2></button>
+        }
     </div>
+</div>

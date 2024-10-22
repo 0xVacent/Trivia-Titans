@@ -69,7 +69,7 @@
     overflow: hidden;
     height: 9.375rem;
     border: 0.3125rem solid black;
-
+    transition: transform 0.3s;
 }
 
 .top-scorers:hover {

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { Jugador } from '../../interface/jugadorInterface';
+import { Jugador } from '../../interfaces/jugador.interface';
 import { FormsModule } from '@angular/forms';
 
 @Component({
