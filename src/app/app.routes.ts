@@ -4,6 +4,7 @@ import { MenuSingleplayerComponent } from './features/menu-singleplayer/menu-sin
 import { TopScorersComponent } from './features/top-scorers/top-scorers.component';
 import { MenuMultiplayerComponent } from './features/menu-multiplayer/menu-multiplayer.component';
 import { SingleplayerGamePageComponent } from './pages/singleplayer-game-page/singleplayer-game-page.component';
+import { EndGameComponent } from './shared/end-game/end-game.component';
 
 export const routes: Routes = [
     {
@@ -25,9 +26,13 @@ export const routes: Routes = [
     {
         path: "singleplayer-game",
         component: SingleplayerGamePageComponent
+    },    {
+        path:"endgame",
+        component: EndGameComponent
     },
     {
         path: "**",
         redirectTo: ""
     }
+
 ];
