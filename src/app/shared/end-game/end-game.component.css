@@ -1,0 +1,68 @@
+.cuadro{
+    height:500px ;
+    width:800px;
+    background-color: #35f7ff;
+    border-radius: 50px;
+    border:5px solid black;
+}
+
+.cuadro h3{
+    font-family: 'Cinzel';
+    font-size: 4rem;
+    color: black;
+    -webkit-text-stroke-color: gray;
+    -webkit-text-stroke-width: 0.1rem; 
+    margin:0 auto;
+}
+.score{
+    background-color: #fda839;
+    width: 180px;
+    height: 180px;
+    margin: 0 auto;
+    border: 5px solid black;
+    border-radius: 180px;
+}
+.score h2{
+    color: black;
+    font-size: 8rem;
+    text-align: center ;
+    margin-top: 15px;
+    -webkit-text-stroke-color: gray;
+    -webkit-text-stroke-width: 0.15rem; 
+}
+.points{
+    font-size: 3rem;
+    font-family: 'Cinzel';
+    color: black;
+    -webkit-text-stroke-color: gray;
+    -webkit-text-stroke-width: 0.07rem; 
+    margin:0 auto;
+}
+.frase{
+    font-size: 2rem;
+    font-family: 'Cinzel';
+    color: black;
+    -webkit-text-stroke-color: gray;
+    -webkit-text-stroke-width: 0.05rem; 
+}
+.cuadro button{
+    background-color: #fda839;
+    border-radius: 50px;
+    border:5px solid black;
+    width: 200px;
+    height: 80px;
+    transition: transform 0.3s;
+
+}
+.cuadro button h2{
+    font-size: 2rem;
+    font-family: 'Cinzel';
+    color: black;
+    -webkit-text-stroke-color: gray;
+    -webkit-text-stroke-width: 0.05rem; 
+    margin: 0 auto;
+}
+.cuadro button:hover{
+    transform: scale(1.05);
+
+}

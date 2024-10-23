@@ -3,6 +3,7 @@ import { ApiTrivia } from '../../interfaces/api-trivia.interface';
 import { PreguntaApi, Respuesta } from '../../interfaces/pregunta.interface';
 import { ApiService } from '../../services/api.service';
 import { PreguntaComponent } from "../../shared/pregunta/pregunta.component";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-singleplayer-game-page',
@@ -19,6 +20,8 @@ export class SingleplayerGamePageComponent implements OnInit {
 
   preguntaActualIndex: number = 0;
 
+constructor(private router: Router){}
+
   pasarSiguientePregunta(esCorrecta: boolean) {
     if (!esCorrecta) {
       this.vidas--;
@@ -32,8 +35,7 @@ export class SingleplayerGamePageComponent implements OnInit {
         this.getInfoApi(); //hace otra soli a la a api
       }
     } else {
-      alert("fin del juego")
-    }
+this.router.navigate(['/endgame']);    }
 
 
   }
