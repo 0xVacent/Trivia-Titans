@@ -39,9 +39,6 @@ export class PreguntaComponent implements OnInit, OnDestroy {
   @Output()
   preguntaRespondida = new EventEmitter<boolean>();
 
-  
-  //trivia: ApiTrivia[] = [];
-
   isRespondida: boolean = false;   //booleano para saber si ya se eligio una respuesta
   esCorrecta: boolean | undefined;
 
@@ -51,8 +48,6 @@ export class PreguntaComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.iniciarContador();
-    //this.getInfoApi();
-
   }
 
   ngOnDestroy() {
@@ -65,17 +60,22 @@ export class PreguntaComponent implements OnInit, OnDestroy {
     this.intervalId = setInterval(() => {   //establece un intervalo que disminuyer el contador en 1 cada segundo
       if (this.contador > 0) {
         this.contador--;
-      } else {
+      } else {  //si se termina el tiempo se da por hecho que la respuesta se respondio incorrectamente
+        this.esCorrecta = false;
+        this.isRespondida = true;
         clearInterval(this.intervalId);
       }
     }, 1000)
   }
 
-  seleccionarRespuesta(respuesta:Respuesta) {   //funcion que cambia el estado de respuestaSeleccionada a true para establecer que ya se eligio una respuesta
-    this.isRespondida = true;
-    this.esCorrecta = respuesta.isCorrect;
-
-    clearInterval(this.intervalId);  // detenemos el intervalo cuando el componente se destruye
+  seleccionarRespuesta(respuesta: Respuesta) {   //funcion que cambia el estado de respuestaSeleccionada a true para establecer que ya se eligio una respuesta
+    if (!this.isRespondida) { //si no se eligio una respuesta, dejo elegir una, si no, no
+      this.isRespondida = true;
+      this.esCorrecta = respuesta.isCorrect;
+      clearInterval(this.intervalId);  // detenemos el intervalo cuando el componente se destruye
+    } else {
+      alert("ya elegiste una respuesta tramposo");
+    }
   }
 
   siguientePregunta() {
@@ -89,60 +89,12 @@ export class PreguntaComponent implements OnInit, OnDestroy {
     this.iniciarContador();  // Reiniciamos el contador
   }
 
+  // Función para decodificar entidades HTML
+  decodeHtml(html: string): string {
+    const txt = document.createElement("textarea");
+    txt.innerHTML = html;
+    return txt.value;
+  }
 
-
-
-
-
-
-
-    // Función para decodificar entidades HTML
-    decodeHtml(html: string): string {
-      const txt = document.createElement("textarea");
-      txt.innerHTML = html;
-      return txt.value;
-    }
-
-
-
-
-  /*
-  
-    
-  
-    apiService: ApiService = inject(ApiService);
-  
-    getInfoApi() {
-      this.apiService.getInfoApi().subscribe(
-        {
-          next: (info) => {
-            this.trivia = info.results;
-  
-            this.preguntas = this.mapearPreguntas(this.trivia);
-            console.log(this.preguntas);
-          },
-          error: (err) => {
-            console.log(err);
-          }
-        }
-      )
-    }
-  
-    mapearPreguntas(trivia: ApiTrivia[]): PreguntaApi[] {
-      return trivia.map((pregunta) => ({
-        tipoDePregunta: pregunta.type,
-        pregunta: pregunta.question,
-        respuestas: this.combinarRespuestas(pregunta.correct_answer, pregunta.incorrect_answers)
-      }));
-    }
-  
-    combinarRespuestas(correctAnswer: string, incorrectAnswers: string[]): Respuesta[] {
-      const respuestas = [...incorrectAnswers, correctAnswer];
-  
-      return respuestas.map((resp) => ({
-        texto: resp,
-        isCorrect: resp === correctAnswer
-      }));
-    }*/
 
 }

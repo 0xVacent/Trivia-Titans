@@ -52,7 +52,7 @@
     width: 200px;
     height: 80px;
     transition: transform 0.3s;
-
+    margin: 0.25rem;
 }
 .cuadro button h2{
     font-size: 2rem;

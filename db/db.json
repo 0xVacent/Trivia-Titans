@@ -1,0 +1,28 @@
+{
+  "singleplayer-scores": [
+    {
+      "id": "08cb",
+      "nombre": "jonas",
+      "puntos": 12,
+      "color": ""
+    },
+    {
+      "id": "72fe",
+      "nombre": "pepe",
+      "puntos": 5,
+      "color": ""
+    },
+    {
+      "id": "4df5",
+      "nombre": "luis",
+      "puntos": 1,
+      "color": ""
+    },
+    {
+      "id": "997a",
+      "nombre": "carlos",
+      "puntos": 2,
+      "color": ""
+    }
+  ]
+}

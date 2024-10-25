@@ -9,7 +9,7 @@ import { EndGameComponent } from './shared/end-game/end-game.component';
 export const routes: Routes = [
     {
         path: "",
-        component: MenuPrincipalComponent 
+        component: MenuPrincipalComponent
     },
     {
         path: "menu-singleplayer",
@@ -24,10 +24,11 @@ export const routes: Routes = [
         component: TopScorersComponent
     },
     {
-        path: "singleplayer-game",
+        path: "singleplayer-game/:nombre",
         component: SingleplayerGamePageComponent
-    },    {
-        path:"endgame",
+    },
+    {
+        path: "endgame/:nombre/:puntos",    //redirecciona con los puntos obtenidos en el juego
         component: EndGameComponent
     },
     {
