@@ -18,6 +18,7 @@ export class PreguntaComponent implements OnInit, OnDestroy {
   triviaResponse: PreguntaApi = {
     tipoDePregunta: "multiple",
     pregunta: "What are the names of the main characters in How I Met Your Mother?",
+    categoria: "Television",
 
     respuestas: [
       { texto: "Ted, Robin, Barney, Lily, Marshall", isCorrect: true },
@@ -30,6 +31,7 @@ export class PreguntaComponent implements OnInit, OnDestroy {
 
   @Input()
   pregunta: PreguntaApi = {
+    categoria:'',
     tipoDePregunta: '',
     pregunta: '',
     respuestas: []

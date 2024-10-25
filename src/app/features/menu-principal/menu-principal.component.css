@@ -18,9 +18,10 @@
     height: 13.4375rem;
     width: 18.75rem;
     text-align: center;
-    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
     transition: transform 0.3s;
     overflow: hidden;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3), inset -1px -1px 3px rgba(255, 255, 255, 0.5);
+    background-image: linear-gradient(135deg, #a8e6ff, #35f7ff);
 }
 
 .button:hover {
@@ -70,6 +71,8 @@
     height: 9.375rem;
     border: 0.3125rem solid black;
     transition: transform 0.3s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3), inset -1px -1px 3px rgba(255, 255, 255, 0.5);
+    background-image: linear-gradient(135deg, #fdd36c, #fda839);
 }
 
 .top-scorers:hover {

@@ -1,9 +1,11 @@
 .cuadro{
-    height:500px ;
-    width:800px;
+    height:31.25rem ;
+    width:50rem;
     background-color: #35f7ff;
-    border-radius: 50px;
-    border:5px solid black;
+    border-radius: 3.125rem;
+    border:0.3125rem solid black;
+    box-shadow: 0.125rem 0.125rem 0.625rem rgba(0, 0, 0, 0.3), inset -0.0625rem -0.0625rem 0.1875rem rgba(255, 255, 255, 0.5);
+    background-image: linear-gradient(135deg, #a8e6ff, #35f7ff);
 }
 
 .cuadro h3{
@@ -16,17 +18,19 @@
 }
 .score{
     background-color: #fda839;
-    width: 180px;
-    height: 180px;
+    width: 11.25rem;
+    height: 11.25rem;
     margin: 0 auto;
-    border: 5px solid black;
-    border-radius: 180px;
+    border: 0.3125rem solid black;
+    border-radius: 11.25rem;
+    box-shadow: 0.125rem 0.125rem 0.625rem rgba(0, 0, 0, 0.3), inset -0.0625rem -0.0625rem 0.1875rem rgba(255, 255, 255, 0.5);
+    background-image: linear-gradient(135deg, #fdd36c, #fda839);
 }
 .score h2{
     color: black;
     font-size: 8rem;
     text-align: center ;
-    margin-top: 15px;
+    margin-top: 0.9375rem;
     -webkit-text-stroke-color: gray;
     -webkit-text-stroke-width: 0.15rem; 
 }
@@ -47,12 +51,14 @@
 }
 .cuadro button{
     background-color: #fda839;
-    border-radius: 50px;
-    border:5px solid black;
-    width: 200px;
-    height: 80px;
+    border-radius: 3.125rem;
+    border:0.3125rem solid black;
+    width: 12.5rem;
+    height: 5rem;
     transition: transform 0.3s;
     margin: 0.25rem;
+    box-shadow: 0.125rem 0.125rem 0.625rem rgba(0, 0, 0, 0.3), inset -0.0625rem -0.0625rem 0.1875rem rgba(255, 255, 255, 0.5);
+    background-image: linear-gradient(135deg, #fdd36c, #fda839);
 }
 .cuadro button h2{
     font-size: 2rem;

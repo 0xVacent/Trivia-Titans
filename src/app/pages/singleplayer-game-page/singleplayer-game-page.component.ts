@@ -84,6 +84,7 @@ export class SingleplayerGamePageComponent implements OnInit {
     return trivia.map((pregunta) => ({
       tipoDePregunta: pregunta.type,
       pregunta: pregunta.question,
+      categoria: pregunta.category,
       respuestas: this.combinarRespuestas(pregunta.correct_answer, pregunta.incorrect_answers)  	//combino las respuestas en un solo array
     }));
   }

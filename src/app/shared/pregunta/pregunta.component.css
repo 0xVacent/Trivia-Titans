@@ -29,6 +29,8 @@
     transition: transform 0.3s;
     overflow: hidden;
     margin: 0 auto;
+    box-shadow: 0.125rem 0.125rem 0.625rem rgba(0, 0, 0, 0.3), inset -0.0625rem -0.0625rem 0.1875rem rgba(255, 255, 255, 0.5);
+    background-image: linear-gradient(135deg, #fdd36c, #fda839);
 }
 
 .pregunta h2 {
@@ -39,7 +41,8 @@
     font-size: 1.7rem;
     color: black;
     -webkit-text-stroke-color: gray;
-    -webkit-text-stroke-width: 0.0375rem;
+    -webkit-text-stroke-width: 0.0375rem;    
+
 }
 .respuestas{
     margin-top: 0;
@@ -59,10 +62,14 @@
     overflow: hidden;
     margin-top: 1rem;
     cursor: pointer;
+    box-shadow: 0.125rem 0.125rem 0.625rem rgba(0, 0, 0, 0.3), inset -0.0625rem -0.0625rem 0.1875rem rgba(255, 255, 255, 0.5);
+    background-image: linear-gradient(135deg, #a8e6ff, #35f7ff);
 }
 
 .respuestas li:hover {
     transform: scale(1.05);
+    box-shadow: 0.25rem 0.25rem 0.9375rem rgba(0, 0, 0, 0.4), inset -0.125rem -0.125rem 0.3125rem rgba(255, 255, 255, 0.6);
+
 }
 
 .respuestas li h2 {
@@ -74,13 +81,19 @@
 }
 
 .respuestas li.correcta {
-    background-color: rgb(14, 189, 14);
+    background-color: rgb(14, 189, 14) ;
+    background-image: none;
+    border-color: darkgreen;
+    box-shadow: 0.1875rem 0.1875rem 0.625rem rgba(0, 128, 0, 0.4), inset -0.0625rem -0.0625rem 0.1875rem rgba(255, 255, 255, 0.5);
     cursor: default;
 }
 
 .respuestas li.incorrecta {
     background-color: rgb(255, 0, 0);
     cursor: default;
+    background-image: none;
+    border-color: darkred;
+    box-shadow: 0.1875rem 0.1875rem 0.625rem rgba(255, 0, 0, 0.4), inset -0.0625rem -0.0625rem 0.1875rem rgba(255, 255, 255, 0.5);
 }
 
 .button {
@@ -89,13 +102,15 @@
     background-color: #35f7ff;
     border-radius: 2.5rem;
     padding: 0;
-    height: 80px;
-    width: 400px;
+    height: 4.6875rem;
+    width: 25rem;
     text-align: center;
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
     overflow: hidden;
-    top: -20px;
+    top: -1.25rem;
+    box-shadow: 0.125rem 0.125rem 0.625rem rgba(0, 0, 0, 0.3), inset -0.0625rem -0.0625rem 0.1875rem rgba(255, 255, 255, 0.5);
+    background-image: linear-gradient(135deg, #a8e6ff, #35f7ff);
 }
 .button h2{
     font-family: 'Cinzel';
@@ -108,4 +123,59 @@
 .button:hover{
     transform: scale(1.05);
 
+}
+.category {
+    background-color: #fda839;
+    height: auto;
+    width: 12.5rem;
+    border: 0.1875rem solid black;
+    border-radius: 1.25rem;
+    position: absolute;
+    left: 31.25rem; /* Ajusta según lo necesario */
+    top: 6.25rem; /* Comienza en la parte superior del contenedor */
+    z-index: 1; /* Asegúrate de que tenga prioridad de superposición */
+    margin: 0;
+    padding: 0.625rem;
+    box-shadow: 0.125rem 0.125rem 0.625rem rgba(0, 0, 0, 0.3), inset -0.0625rem -0.0625rem 0.1875rem rgba(255, 255, 255, 0.5);
+    background-image: linear-gradient(135deg, #fdd36c, #fda839);
+
+}
+
+
+.category h2{
+    font-family: 'Cinzel';
+    font-size: 2rem;
+    color: black;
+    -webkit-text-stroke-color: gray;
+    -webkit-text-stroke-width: 0.0375rem; 
+
+    
+}
+.container{
+    position: relative;
+}
+
+.contenedor{
+position: relative fixed;
+margin-top: 1.875rem;
+top: -5rem;
+}
+.vidas{
+    height: 12.5rem;
+    width: 25rem;
+    position: absolute;
+    right: 22.1875rem;
+    top: 16.875rem;
+}
+#vida1{
+height: 3.125rem;
+width: auto;
+}
+#vida2{
+    height: 3.125rem;
+    width: auto;
+}
+#vida3{
+    height: 3.125rem;
+    width: auto;
 }
