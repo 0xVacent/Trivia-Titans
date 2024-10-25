@@ -24,6 +24,7 @@ export class MenuMultiplayerComponent {
   crearJugador() {
     const jugador: Jugador = {
       nombre: "",
+      puntos: 0,
       color: ""
     }
     this.arrayJugadores.push(jugador);
