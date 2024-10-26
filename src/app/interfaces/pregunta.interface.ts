@@ -7,7 +7,7 @@ export interface Respuesta {
 export interface PreguntaApi {
     tipoDePregunta: string;
     //dificultad
-    //categoria
+    categoria: string;
     pregunta: string;
     //respuestaCorrecta: string;
     //respuestasIncorrectas: Array<string>;
