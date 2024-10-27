@@ -38,6 +38,15 @@ export class PreguntaComponent implements OnInit, OnDestroy {
   };
 
 
+  vidasNum: number | undefined;
+  vidasArray : number[] = [];
+
+  @Input()
+  set vidas(value: number) {
+    this.vidasNum = value;
+    this.vidasArray = Array(this.vidasNum).fill(0);
+  };
+
   @Output()
   preguntaRespondida = new EventEmitter<boolean>();
 

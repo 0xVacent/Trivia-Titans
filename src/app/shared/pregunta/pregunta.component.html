@@ -4,9 +4,9 @@
         <h2>{{contador}}</h2>
     </div>
     <div class="vidas">
-        <img id="vida1" src="/img/pngwing.com.png" alt="vida">
-        <img id="vida2" src="/img/pngwing.com.png" alt="vida">
-        <img id="vida3" src="/img/pngwing.com.png" alt="vida">
+        @for (vida of vidasArray; track $index) {
+            <img class="vida" src="/img/pngwing.com.png" alt="vida">
+        }
     </div>
     <div class="category"><h2>{{decodeHtml(pregunta.categoria)}}</h2></div>
     <div class="contenedor">

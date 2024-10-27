@@ -8,17 +8,17 @@
             <input type="text" [placeholder]="'Player ' + ($index+1) + ' Name'" class="player-name" [(ngModel)]="arrayJugadores[$index].nombre">
             <div class="color-picker">
                 <div class="color-option red" (click)="seleccionarColor($index, 'red')"
-                    [ngClass]="{'selected': arrayJugadores[$index].color === 'red', 'disabled': coloresUsados.includes('red')}">
+                    [ngClass]="{'selected': arrayJugadores[$index].color === 'red', 'disabled': coloresUsados.includes('red') && arrayJugadores[$index].color !== 'red'}">
                 </div>
                 <div class="color-option blue" (click)="seleccionarColor($index, 'blue')"
-                    [ngClass]="{'selected': arrayJugadores[$index].color === 'blue', 'disabled': coloresUsados.includes('blue')}">
+                    [ngClass]="{'selected': arrayJugadores[$index].color === 'blue', 'disabled': coloresUsados.includes('blue') && arrayJugadores[$index].color !== 'blue'}">
                 </div>
                 <div class="color-option green" (click)="seleccionarColor($index, 'green')"
-                    [ngClass]="{'selected': arrayJugadores[$index].color === 'green', 'disabled': coloresUsados.includes('green')}">
+                    [ngClass]="{'selected': arrayJugadores[$index].color === 'green', 'disabled': coloresUsados.includes('green') && arrayJugadores[$index].color !== 'green'}">
                 </div>
                 <div class="color-option yellow"
                     (click)="seleccionarColor($index, 'yellow')"
-                    [ngClass]="{'selected': arrayJugadores[$index].color === 'yellow', 'disabled': coloresUsados.includes('yellow')}">
+                    [ngClass]="{'selected': arrayJugadores[$index].color === 'yellow', 'disabled': coloresUsados.includes('yellow') && arrayJugadores[$index].color !== 'yellow'}">
                 </div>
             </div>
             <button class="delete-btn" (click)="eliminarJugador($index)">🗑️</button>

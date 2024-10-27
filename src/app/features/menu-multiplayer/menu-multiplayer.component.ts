@@ -40,7 +40,10 @@ export class MenuMultiplayerComponent {
 
   seleccionarColor(index: number, colorSeleccionado: string) {
     const jugador = this.arrayJugadores[index];   //agarro el jugador del array a partir del indice pasado en el for del html
-    if (!this.coloresUsados.includes(colorSeleccionado)) {
+    if(jugador.color === colorSeleccionado) {   //si el color seleccionado es el que ya tenia seleccionado lo des-selecciona
+      this.coloresUsados = this.coloresUsados.filter(c => c !== jugador.color)  //si el jugador tenia un color seleccionado anteriormente, saco ese color del array de colores usados
+      jugador.color = "";
+    } else if (!this.coloresUsados.includes(colorSeleccionado)) {
       if (jugador.color) {
         this.coloresUsados = this.coloresUsados.filter(c => c !== jugador.color)  //si el jugador tenia un color seleccionado anteriormente, saco ese color del array de colores usados
       }
