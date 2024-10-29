@@ -9,6 +9,8 @@
 
 body {
     background-color: var(--colorFondo);
+max-height: 60vh;
+overflow: hidden;
 }
 
 body::before {

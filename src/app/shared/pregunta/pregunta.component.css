@@ -5,8 +5,8 @@
     position: absolute;
     border: 0.3125rem solid black;
     border-radius: 6.25rem;
-    top: 9.375rem;
-    left: 68.75rem;
+    top: 8rem;
+    left: 35.75rem;
     border-style: dashed;
 }
 
@@ -98,7 +98,7 @@
 
 .button {
     border: 0.3125rem solid black;
-    position: relative;
+    position: absolute;
     background-color: #35f7ff;
     border-radius: 2.5rem;
     padding: 0;
@@ -108,9 +108,12 @@
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
     overflow: hidden;
-    top: -1.25rem;
+    top: 57rem;
+    left: 11rem;
+     
     box-shadow: 0.125rem 0.125rem 0.625rem rgba(0, 0, 0, 0.3), inset -0.0625rem -0.0625rem 0.1875rem rgba(255, 255, 255, 0.5);
     background-image: linear-gradient(135deg, #a8e6ff, #35f7ff);
+    margin-bottom: 0;
 }
 .button h2{
     font-family: 'Cinzel';
@@ -131,7 +134,7 @@
     border: 0.1875rem solid black;
     border-radius: 1.25rem;
     position: absolute;
-    left: 31.25rem; /* Ajusta según lo necesario */
+    left: 0rem; /* Ajusta según lo necesario */
     top: 6.25rem; /* Comienza en la parte superior del contenedor */
     z-index: 1; /* Asegúrate de que tenga prioridad de superposición */
     margin: 0;
@@ -150,20 +153,25 @@
 }
 
 .container{
-    position: relative;
-}
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    max-height: 60vh;
+ }
 
 .contenedor{
 position: relative fixed;
 margin-top: 1.875rem;
 top: -5rem;
+max-height: 60vh;
+padding-bottom: 0;
 }
 
 .vidas{
     height: 12.5rem;
     width: 25rem;
     position: absolute;
-    right: 22.1875rem;
+    right: -4.8rem;
     top: 16.875rem;
 }
 
