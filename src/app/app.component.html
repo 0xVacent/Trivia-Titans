@@ -1,14 +1,12 @@
 <router-outlet>
-    <iframe 
-  id="youtubePlayer"
-  width="0" 
-  height="0" 
-  src="https://www.youtube.com/embed/JqXwT9ZEHVA?autoplay=1&loop=1&playlist=JqXwT9ZEHVA&controls=0&mute=0"
-  frameborder="0" 
-  allow="autoplay" 
-  allowfullscreen>
-</iframe>
-<!-- <button (click)="toggleMute()" class="mute-button">
+    <audio 
+  id="audioplayer"
+  src="music/ambient.mp3"
+  autoplay
+  loop
+  >
+</audio>
+<button (click)="toggleMute()" class="mute-button">
   <span [ngClass]="isMuted ? 'muted-icon' : 'unmuted-icon'"></span>
-</button> -->
+</button>
 </router-outlet>

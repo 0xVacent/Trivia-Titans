@@ -13,16 +13,16 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent {
   title = 'Trivia-Titans';
- /* isMuted = true;
+  isMuted = false;
 
    toggleMute() {
-    const player = document.getElementById('youtubePlayer') as HTMLIFrameElement;
+    const player = document.getElementById('audioplayer') as HTMLAudioElement;
 
-    // Envía un mensaje al iframe para alternar entre mute y unmute
-    const command = this.isMuted ? 'unMute' : 'mute';
-    player.contentWindow?.postMessage(`{"event":"command","func":"${command}","args":[]}`, '*');
-    
     // Cambia el estado de isMuted
     this.isMuted = !this.isMuted;
-  } */
+    // Envía un mensaje al audioplayer para alternar entre mute y unmute
+    player.muted = this.isMuted;
+    
+ 
+  }
 }
