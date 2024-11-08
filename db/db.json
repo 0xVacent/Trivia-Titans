@@ -3,7 +3,7 @@
     {
       "id": "08cb",
       "nombre": "jonas",
-      "puntos": 12,
+      "puntos": 9,
       "color": ""
     },
     {
@@ -22,6 +22,24 @@
       "id": "997a",
       "nombre": "carlos",
       "puntos": 2,
+      "color": ""
+    },
+    {
+      "id": "aa9b",
+      "nombre": "Mati GOAT",
+      "puntos": 15,
+      "color": ""
+    },
+    {
+      "id": "0f2e",
+      "nombre": "JONAS CUERVO",
+      "puntos": 10,
+      "color": ""
+    },
+    {
+      "id": "fc9c",
+      "nombre": "asdasd",
+      "puntos": 1,
       "color": ""
     }
   ]

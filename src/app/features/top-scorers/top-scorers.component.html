@@ -1,14 +1,17 @@
 <div class="contenedor">
     <a routerLink="/"><img class="logo2" src="/img/Logo-Trivia-Titans.png" alt="logo"></a>
     <div class="top">
+
+        
         <table class="top-scorers-table">
             <thead>
                 <tr>
-                    <th>Player Name</th>
-                    <th>Score</th>
+                    <td>Name</td>
+                    <td>Points</td>
                 </tr>
             </thead>
             <tbody>
+                
                 @for (score of puntajesJugadores; track $index) {
                     @if ($index < 10) {
                         <tr>

@@ -2,34 +2,44 @@
     width: 25rem;
     margin: 0 auto;
     border-collapse: collapse;
-    background-color: #f4b266;
     border-radius: 1.25rem;
     overflow: hidden;
-    -webkit-text-stroke-color: gray;
-    -webkit-text-stroke-width: 0.05rem;
+    background-color: #2ef5fccc;
+
 }
 
 .top-scorers-table th,
 .top-scorers-table td {
-    padding: 0.9375rem;
+
     text-align: center;
     font-size: 1.5rem;
     font-family: 'GreekFreak', sans-serif;
+    font-optical-sizing: auto;
     /* Usa la fuente que ya estás usando */
-    border-bottom: 0.125rem solid #ddd;
 }
 
 .top-scorers-table thead {
-    background-color: #35f7ff;
     color: black;
+    background-color: #0083afbd;
 }
 
 .top-scorers-table tr:nth-child(even) {
-    background-color: #f3f3f3;
+    background-color: #fda727d0;
 }
 
 .top-scorers-table tbody tr:hover {
     background-color: #ddd;
     transform: scale(1.02);
     transition: 0.3s;
+}
+
+.top{
+    background-image: url('/img/Trono.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 60vh;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
 }
