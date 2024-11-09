@@ -5,7 +5,8 @@ import { TopScorersComponent } from './features/top-scorers/top-scorers.componen
 import { MenuMultiplayerComponent } from './features/menu-multiplayer/menu-multiplayer.component';
 import { SingleplayerGamePageComponent } from './pages/singleplayer-game-page/singleplayer-game-page.component';
 import { EndGameComponent } from './shared/end-game/end-game.component';
-import { MultiplayerLoadingScreenComponent } from './pages/multiplayer-loading-screen/multiplayer-loading-screen.component';
+import { MultiplayerBoardComponent } from './features/multiplayer-board/multiplayer-board.component';
+import { MultiplayerGamePageComponent } from './pages/multiplayer-game-page/multiplayer-game-page.component';
 
 export const routes: Routes = [
     {
@@ -29,12 +30,12 @@ export const routes: Routes = [
         component: SingleplayerGamePageComponent
     },
     {
-        path: "endgame/:nombre/:puntos",    //redirecciona con los puntos obtenidos en el juego
+        path: "endgame/:modo/:nombre/:puntos",    //redirecciona con los puntos obtenidos en el juego
         component: EndGameComponent
     },
     {
-        path: "multiplayer-Loading",
-        component:MultiplayerLoadingScreenComponent
+        path: "multiplayer-game",
+        component: MultiplayerGamePageComponent
     },
     {
         path: "**",

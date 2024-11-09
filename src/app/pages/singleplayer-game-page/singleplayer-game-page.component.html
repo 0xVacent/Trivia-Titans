@@ -1,6 +1,6 @@
 @if (preguntas.length > 0) {
     <app-pregunta
-        [vidas] = "vidas"
+        [vidas] = "jugador.vidas"
         [pregunta]="preguntas[preguntaActualIndex]"
         (preguntaRespondida)="pasarSiguientePregunta($event)">
     </app-pregunta>

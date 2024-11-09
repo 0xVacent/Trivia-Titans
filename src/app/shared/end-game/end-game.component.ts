@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Jugador } from '../../interfaces/jugador.interface';
 import { ScoresService } from '../../services/scores.service';
 
@@ -12,20 +12,41 @@ import { ScoresService } from '../../services/scores.service';
   styleUrl: './end-game.component.css'
 })
 export class EndGameComponent implements OnInit {
-  
+
   jugador: Jugador = {
     nombre: "",
     puntos: 0,
-    color: ""
+    color: "",
+    vidas: 0
   }
 
-  constructor(private route: ActivatedRoute) {}
+  jugadores: Jugador[] = [];  //array de jugadores para cuando se viene al end-game desde el modo multiplayer
+
+  modo: string = "";
+
+  constructor(private actRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe(param => { this.jugador.nombre = param['nombre']});  //agarro el valor del parametro "nombre" de la url y se lo asigno a this.nombreJugador
-    this.route.params.subscribe(param => { this.jugador.puntos = +param['puntos']});  //agarro el valor del parametro "puntos" de la url y se lo asigno a this.puntos. El + lo connvierte a numero
+    this.actRoute.params.subscribe(param => { this.modo = param['modo'] });  //agarro el valor del parametro "nombre" de la url y se lo asigno a this.nombreJugador
+    this.actRoute.params.subscribe(param => { this.jugador.nombre = param['nombre'] });  //agarro el valor del parametro "nombre" de la url y se lo asigno a this.nombreJugador
+    this.actRoute.params.subscribe(param => { this.jugador.puntos = +param['puntos'] });  //agarro el valor del parametro "puntos" de la url y se lo asigno a this.puntos. El + lo connvierte a numero
+    
+    if (this.modo === "multiplayer") {
+      this.jugadores = history.state.jugadores || []; //agarro los jugadores si vengo del modo multiplayer
+    }
+
     this.resultadoGuardado = false;
   }
+
+  router = inject(Router);
+  tryAgain() {
+    if (this.modo === 'multiplayer') {
+      this.router.navigate(["/multiplayer-game"], { state: { jugadores: this.jugadores } });  //redirijo a multiplayer-game y paso el array de los jugadores para empezar otra partida con los mismos
+    } else {
+      this.router.navigate(['/singleplayer-game', this.jugador.nombre]);  //redirijo a singleplayer-game con el nombre para empezar otra partida
+    }
+  }
+
 
   //json-server
   scoresService = inject(ScoresService);
@@ -47,12 +68,12 @@ export class EndGameComponent implements OnInit {
   resultadoGuardado: boolean = false;
 
   //funcion relacionada al boton de save score
-  guardarResultado () {
-    if (!this.resultadoGuardado){ //si el resultado no fue guardado todavia
+  guardarResultado() {
+    if (!this.resultadoGuardado) { //si el resultado no fue guardado todavia
       this.postScore();
       this.resultadoGuardado = true;
     } else {
-      alert ("Score was already saved");
+      alert("Score was already saved");
     }
   }
 

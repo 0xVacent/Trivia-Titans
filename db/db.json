@@ -41,6 +41,39 @@
       "nombre": "asdasd",
       "puntos": 1,
       "color": ""
+    },
+    {
+      "id": "bab9",
+      "nombre": "JUAN",
+      "puntos": 2,
+      "color": ""
+    },
+    {
+      "id": "15d1",
+      "nombre": "JUAN",
+      "puntos": 3,
+      "color": ""
+    },
+    {
+      "id": "02a8",
+      "nombre": "jonas",
+      "puntos": 19,
+      "color": "",
+      "vidas": 0
+    },
+    {
+      "id": "2cb5",
+      "nombre": "Pedro",
+      "puntos": 13,
+      "color": "",
+      "vidas": 0
+    },
+    {
+      "id": "7c59",
+      "nombre": "ZZZZZ",
+      "puntos": 10,
+      "color": "",
+      "vidas": 0
     }
   ]
 }
