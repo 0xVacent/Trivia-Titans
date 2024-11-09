@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
 import { Jugador } from '../../interfaces/jugador.interface';
 import { FormsModule } from '@angular/forms';
 
@@ -25,7 +25,8 @@ export class MenuMultiplayerComponent {
     const jugador: Jugador = {
       nombre: "",
       puntos: 0,
-      color: ""
+      color: "",
+      vidas: 3
     }
     this.arrayJugadores.push(jugador);
   }
@@ -51,4 +52,18 @@ export class MenuMultiplayerComponent {
       this.coloresUsados.push(colorSeleccionado); //pongo al color seleccionado en el array de colores usados
     }
   }
+
+  sePuedeEmpezarJuego(): boolean {
+    if (this.arrayJugadores.length >= 2 && this.arrayJugadores.every(jugador => jugador.nombre && jugador.color)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  private router = inject(Router);
+  iniciarJuego() {
+    this.router.navigate(["/multiplayer-game"], { state: { jugadores: this.arrayJugadores } });
+  }
 }
+

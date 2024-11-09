@@ -6,7 +6,7 @@
             <div class="score"><h2>{{jugador.puntos}}</h2></div>
             <h2 class="points">Points</h2>
             <h2 class="frase">Even legends fall. Ready to rise again?</h2>
-            <a [routerLink]="['/singleplayer-game', jugador.nombre]"><button><h2>Try Again</h2></button></a>
+            <a (click)="tryAgain()"><button><h2>Try Again</h2></button></a>
             <a (click)="guardarResultado()"><button><h2>Save Score</h2></button></a>
          </div> 
     </div>

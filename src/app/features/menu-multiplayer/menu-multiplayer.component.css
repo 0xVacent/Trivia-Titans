@@ -40,7 +40,7 @@
     transition: 0.3s;
     color: black;
     text-align: center;
-
+    cursor: pointer;
 }
 
 #start-game-btn h2 {

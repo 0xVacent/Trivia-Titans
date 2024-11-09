@@ -1,48 +1,66 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ApiTrivia } from '../../interfaces/api-trivia.interface';
-import { PreguntaApi, Respuesta } from '../../interfaces/pregunta.interface';
-import { ApiService } from '../../services/api.service';
-import { PreguntaComponent } from "../../shared/pregunta/pregunta.component";
-import { ActivatedRoute, Router } from '@angular/router';
+import { MultiplayerBoardComponent } from "../../features/multiplayer-board/multiplayer-board.component";
 import { Jugador } from '../../interfaces/jugador.interface';
+import { ApiService } from '../../services/api.service';
+import { PreguntaApi, Respuesta } from '../../interfaces/pregunta.interface';
+import { ApiTrivia } from '../../interfaces/api-trivia.interface';
+import { PreguntaComponent } from "../../shared/pregunta/pregunta.component";
 
 @Component({
-  selector: 'app-singleplayer-game-page',
+  selector: 'app-multiplayer-game-page',
   standalone: true,
-  imports: [PreguntaComponent],
-  templateUrl: './singleplayer-game-page.component.html',
-  styleUrl: './singleplayer-game-page.component.css'
+  imports: [MultiplayerBoardComponent, PreguntaComponent],
+  templateUrl: './multiplayer-game-page.component.html',
+  styleUrl: './multiplayer-game-page.component.css'
 })
-export class SingleplayerGamePageComponent implements OnInit {
+export class MultiplayerGamePageComponent implements OnInit {
 
-  jugador: Jugador = {
-    nombre: "",
-    puntos: 0,  //total de puntos del jugador
-    color: "", //el color no importa en el singleplayer
-    vidas: 3 //vidas jugador
-  }
+  jugadores: Jugador[] = [];
 
+  turnoActualIndex = 0; //indice del array de jugadores del jugador que tiene el turno
+  enTurno: boolean = false; //booleano para ocultar el tablero si se esta en un turno
 
+  finPartida = false;
 
   preguntas: PreguntaApi[] = [];  //arrayDePreguntas al que van las respuestas de la api
   preguntaActualIndex: number = 0;  //indice del array de preguntas
 
-  constructor(private router: Router,
-              private activatedRoute: ActivatedRoute  //para poder recibir parametros enviados por url
-  ) { }
+  ngOnInit(): void {
+    //traigo los jugadores pasados por url en el componente menu-multiplayer en la funcion iniciarJuego()
+    this.jugadores = (history.state.jugadores || []).map((jugador: Jugador) => ({
+      ...jugador,
+      puntos: 0,  // inicializa puntos en 0
+      vidas: 3    // inicializa vidas en 3
+    }));
+
+    console.log(this.jugadores);
+
+    this.getInfoApi();  //traigo preguntas de la api
+
+  }
+
+  empezarTurno(turnoBoolean: boolean) {
+    this.enTurno = turnoBoolean;
+  }
+
+  finalizarTurno() {
+    this.enTurno = false;
+    this.turnoActualIndex++;
+    if (this.turnoActualIndex >= this.jugadores.length){
+      this.turnoActualIndex = 0;
+    }
+  }
 
   pasarSiguientePregunta(esCorrecta: boolean) {
     if (!esCorrecta) {    //si el flag (esCorrecta) traido de pregunta.component es false(no es correcta), resto una vida
-      this.jugador.vidas--;
+      this.jugadores[this.turnoActualIndex].vidas--;
+      this.finalizarTurno();    //finalizo el turno del jugador actual
+
     } else {              //si no, sumo un punto
-      this.jugador.puntos++;
+      this.jugadores[this.turnoActualIndex].puntos++;
     }
 
-    console.log("VIDAS: " + this.jugador.vidas);
-    console.log("PUNTOS: " + this.jugador.puntos);
-
-
-    if (this.jugador.vidas > 0) {   //si el jugador todavia tiene vidas
+    if (this.jugadores[this.turnoActualIndex].vidas > 0) {   //si el jugador todavia tiene vidas
       if (this.preguntaActualIndex < this.preguntas.length - 1) {   //si no se llego al ultimo elemento del array de preguntas traidas de la api aumento el indice en 1
         this.preguntaActualIndex++;
       } else {    //si no, reinicio el array de pregutnas y el indice y hago otra solicitud a la api
@@ -50,16 +68,20 @@ export class SingleplayerGamePageComponent implements OnInit {
         this.getInfoApi();
         this.preguntaActualIndex = 0;
       }
-    } else {  //si el jugador no tiene mas vidas, navego a la pagina de endgame y llevo los datos de puntos y nombre del jugador
-      this.router.navigate(['/endgame', 'singleplayer', this.jugador.nombre, this.jugador.puntos]);
+    } else {  //si se llega a este punto es porque el primer jugador se quedo sin vidas, por lo que al ser en ronda, el resto de jugadores tambeien
+      this.finPartida = true; //se finaliza la partida y se comunica al tablero con el Input()
     }
+
+    console.log("");
+    console.log("JUGADOR: " + this.jugadores[this.turnoActualIndex].nombre);
+    console.log("VIDAS: " + this.jugadores[this.turnoActualIndex].vidas);
+    console.log("PUNTOS: " + this.jugadores[this.turnoActualIndex].puntos);
+    console.log("");
   }
 
 
-  ngOnInit() {
-    this.activatedRoute.params.subscribe(param => {this.jugador.nombre = param["nombre"]});    //recibo el nombre del jugador a traves de la url
-    this.getInfoApi();
-  }
+
+  //////////////api//////////////
 
   apiService: ApiService = inject(ApiService);
 
@@ -108,4 +130,5 @@ export class SingleplayerGamePageComponent implements OnInit {
     }
     return respuestas;
   }
+
 }

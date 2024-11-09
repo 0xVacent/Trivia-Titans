@@ -27,8 +27,8 @@
     </div>
 
      <!-- Boton para empezar la partida (siempre y cuando sean 2 jugadores) -->
-    @if (arrayJugadores.length >= 2) {
-        <a routerLink="/pregunta" id="start-game-btn">
+    @if (sePuedeEmpezarJuego()) {
+        <a (click)="iniciarJuego()" id="start-game-btn">
             <h2>Start Game</h2>
          </a>
     }

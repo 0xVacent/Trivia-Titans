@@ -1,0 +1,27 @@
+<div class="contenedor">
+    <a routerLink="/"><img class="logo2" src="img/Logo-Trivia-Titans.png" alt="logo"></a>
+    
+    <div class="turn">
+        <h2>{{jugadores[jugadorEnTurno].nombre}}</h2>
+    </div>
+    @if (!partidaFinalizada) {
+        <button (click)="empezarTurno()">START TURN</button>
+    }
+    @else {
+        <button (click)="finalizarPartida()">END GAME</button>
+    }
+
+
+    <img class="pista" src="img/pista (2).png" alt="">
+    <div class="guerreros">
+        @for (jugador of jugadores; track $index) {
+        <img
+            [src]="'img/' + jugador.color + '.png'"
+            [alt]="jugador.color"
+            [ngStyle]="{ 'margin-left': calcularDesplazamientoPorPuntos(jugador.puntos)}">
+        }
+    </div>
+
+
+    
+</div>
