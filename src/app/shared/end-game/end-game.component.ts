@@ -1,6 +1,6 @@
+import { Jugador } from './../../interfaces/jugador.interface';
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
-import { Jugador } from '../../interfaces/jugador.interface';
 import { ScoresService } from '../../services/scores.service';
 
 
@@ -33,6 +33,8 @@ export class EndGameComponent implements OnInit {
     
     if (this.modo === "multiplayer") {
       this.jugadores = history.state.jugadores || []; //agarro los jugadores si vengo del modo multiplayer
+      this.jugadores.sort((a, b) => b.puntos - a.puntos);
+
     }
 
     this.resultadoGuardado = false;
@@ -46,7 +48,6 @@ export class EndGameComponent implements OnInit {
       this.router.navigate(['/singleplayer-game', this.jugador.nombre]);  //redirijo a singleplayer-game con el nombre para empezar otra partida
     }
   }
-
 
   //json-server
   scoresService = inject(ScoresService);
@@ -76,6 +77,5 @@ export class EndGameComponent implements OnInit {
       alert("Score was already saved");
     }
   }
-
 
 }
