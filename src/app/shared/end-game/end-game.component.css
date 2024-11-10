@@ -72,3 +72,38 @@
     transform: scale(1.05);
 
 }
+.top-scorers-table {
+    width: 30rem;
+    margin: 0 auto;
+    border-collapse: collapse;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    background-color: #2ef5fccc;
+
+}
+
+.top-scorers-table th,
+.top-scorers-table td {
+
+    color: black;
+    text-align: center;
+    font-size: 3rem;
+    font-family: 'GreekFreak', sans-serif;
+    font-optical-sizing: auto;
+    /* Usa la fuente que ya estás usando */
+}
+
+.top-scorers-table thead {
+    color: black;
+    background-color: #0083afbd;
+}
+
+.top-scorers-table tr:nth-child(even) {
+    background-color: #fda727d0;
+}
+
+.top-scorers-table tbody tr:hover {
+    background-color: #ddd;
+    transform: scale(1.02);
+    transition: 0.3s;
+}

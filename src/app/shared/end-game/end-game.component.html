@@ -1,13 +1,40 @@
 <div class="container">
     <a routerLink="/"><img class="logo2" src="/img/Logo-Trivia-Titans.png" alt="logo"></a>
     <div class="contenedor">
-        <div class="cuadro">
+        @if (((modo=='multiplayer'))) {
+            <div class="cuadro">
+                <h3>Results:</h3>
+                <table class="top-scorers-table">
+                    <thead>
+                        <tr>
+                            <td>Name</td>
+                            <td>Points</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        @for (jugador of jugadores; track $index) {
+                            @if ($index < 4) {
+                                <tr>
+                                    <td>{{jugador.nombre}}</td>
+                                    <td>{{jugador.puntos}}</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+                <a (click)="tryAgain()"><button><h2>Try Again</h2></button></a>
+                <a (click)="guardarResultado()"><button><h2>Save Score</h2></button></a>
+             </div> 
+        } @else {
+         <div class="cuadro">
             <h3>Congrats {{jugador.nombre}}, You scored </h3>
             <div class="score"><h2>{{jugador.puntos}}</h2></div>
             <h2 class="points">Points</h2>
             <h2 class="frase">Even legends fall. Ready to rise again?</h2>
             <a (click)="tryAgain()"><button><h2>Try Again</h2></button></a>
             <a (click)="guardarResultado()"><button><h2>Save Score</h2></button></a>
-         </div> 
+         </div> }
+
     </div>
 </div>
