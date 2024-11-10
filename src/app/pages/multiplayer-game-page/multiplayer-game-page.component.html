@@ -8,6 +8,12 @@
 }
 
 @if (enTurno) {
+    @if (loading) {
+        <div class="rueda-cargando">
+            <span class="ruedita"></span>
+        </div>
+    }
+
     @if (preguntas.length > 0) {
         <app-pregunta
             [vidas] = "jugadores[turnoActualIndex].vidas"

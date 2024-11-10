@@ -1,12 +1,7 @@
 <router-outlet>
-    <audio 
-  id="audioplayer"
-  src="music/ambient.mp3"
-  autoplay
-  loop
-  >
-</audio>
-<button (click)="toggleMute()" class="mute-button">
-  <span [ngClass]="isMuted ? 'muted-icon' : 'unmuted-icon'"></span>
-</button>
+  <audio id="audioplayer" src="music/ambient.mp3" autoplay loop>
+  </audio>
+  <button (click)="toggleMute()" class="mute-button">
+    <span [ngClass]="isMuted ? 'muted-icon' : 'unmuted-icon'"></span>
+  </button>
 </router-outlet>

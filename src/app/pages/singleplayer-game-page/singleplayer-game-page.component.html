@@ -4,4 +4,10 @@
         [pregunta]="preguntas[preguntaActualIndex]"
         (preguntaRespondida)="pasarSiguientePregunta($event)">
     </app-pregunta>
-} 
+}
+
+@if (loading) {
+    <div class="rueda-cargando">
+        <span class="ruedita"></span>
+    </div>
+}

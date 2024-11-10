@@ -21,6 +21,7 @@ export class EndGameComponent implements OnInit {
   }
 
   jugadores: Jugador[] = [];  //array de jugadores para cuando se viene al end-game desde el modo multiplayer
+  jugadoresOrdenados: Jugador[] = [] //array auxiliar para ordenar los jugadores
 
   modo: string = "";
 
@@ -30,11 +31,10 @@ export class EndGameComponent implements OnInit {
     this.actRoute.params.subscribe(param => { this.modo = param['modo'] });  //agarro el valor del parametro "nombre" de la url y se lo asigno a this.nombreJugador
     this.actRoute.params.subscribe(param => { this.jugador.nombre = param['nombre'] });  //agarro el valor del parametro "nombre" de la url y se lo asigno a this.nombreJugador
     this.actRoute.params.subscribe(param => { this.jugador.puntos = +param['puntos'] });  //agarro el valor del parametro "puntos" de la url y se lo asigno a this.puntos. El + lo connvierte a numero
-    
+
     if (this.modo === "multiplayer") {
       this.jugadores = history.state.jugadores || []; //agarro los jugadores si vengo del modo multiplayer
-      this.jugadores.sort((a, b) => b.puntos - a.puntos);
-
+      this.jugadoresOrdenados = this.jugadores.slice().sort((a, b) => b.puntos - a.puntos); //guardo los jugadores ordenados en un array aparte para no perder el orden original de los jugadores en la partida por si se quiere iniciar otra
     }
 
     this.resultadoGuardado = false;
@@ -75,6 +75,24 @@ export class EndGameComponent implements OnInit {
       this.resultadoGuardado = true;
     } else {
       alert("Score was already saved");
+    }
+  }
+
+  compartirResultado() {
+    if (this.modo === "singleplayer") {
+        const mensaje = `I just finished playing Trivia Titans and got a score of ${this.jugador.puntos} points! Can you beat it? \nhttps://trivia-titans-three.vercel.app/`;
+        const mensajeCodificado = encodeURIComponent(mensaje);
+        const urlWhatsApp = `https://wa.me/?text=${mensajeCodificado}`;
+        window.open(urlWhatsApp, '_blank');
+    } else {
+      let mensaje = 'Game results:\n';
+      this.jugadoresOrdenados.forEach((jugador, index) => {
+        mensaje += `${index + 1}- ${jugador.nombre}: ${jugador.puntos} points\n`;
+      });
+      mensaje += `Do you want to play? https://trivia-titans-three.vercel.app/`;
+      const mensajeCodificado = encodeURIComponent(mensaje);
+      const urlWhatsApp = `https://wa.me/?text=${mensajeCodificado}`;
+      window.open(urlWhatsApp, '_blank');
     }
   }
 
