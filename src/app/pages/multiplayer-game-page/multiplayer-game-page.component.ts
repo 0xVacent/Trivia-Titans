@@ -82,21 +82,27 @@ export class MultiplayerGamePageComponent implements OnInit {
 
 
   //////////////api//////////////
+  loading: boolean = false;
 
   apiService: ApiService = inject(ApiService);
 
   getInfoApi() {
-    this.apiService.getInfoApi().subscribe(
-      {
-        next: (info) => {
-          this.preguntas = this.mapearPreguntas(info.results);  //mapeo el array traido de la api y se lo asigno al array de preguntas
-          console.log(this.preguntas);
-        },
-        error: (err) => {
-          console.log(err);
-        }
+    this.loading = true;  //inicio el estado de carga
+  
+    this.apiService.getInfoApi().subscribe({
+      next: (info) => {
+        this.preguntas = this.mapearPreguntas(info.results);  //mapeo el array traido de la api y se lo asigno al array de preguntas
+        console.log(this.preguntas);
+        this.loading = false;  //finalizo el estado de carga si es que se recibe la respuesta
+      },
+      error: (err) => {
+        console.log(err);
+        setTimeout(() => {  //si no se obtuvo una respuesta pq se hizo una solicitud con menos de 5 segs de diferencia de la anterior, se esperan 5 segs y se reintenta.
+          console.log('Reintentando después de 5 segundos...');
+          this.getInfoApi();
+        }, 5000);
       }
-    )
+    });
   }
 
   //funcion que a partir de un array con la interfaz ApiTrivia mapea a un array con la interfaz PreguntaApi
