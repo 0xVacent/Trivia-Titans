@@ -34,9 +34,7 @@ export class MultiplayerGamePageComponent implements OnInit {
     }));
 
     console.log(this.jugadores);
-
     this.getInfoApi();  //traigo preguntas de la api
-
   }
 
   empezarTurno(turnoBoolean: boolean) {
@@ -60,7 +58,10 @@ export class MultiplayerGamePageComponent implements OnInit {
       this.jugadores[this.turnoActualIndex].puntos++;
     }
 
-    if (this.jugadores[this.turnoActualIndex].vidas > 0) {   //si el jugador todavia tiene vidas
+    if (this.jugadores.some(jugador => jugador.puntos >= 30)) { //revisa si algun jugador llego a los 30 puntos
+      this.finPartida = true; //termina la partida si algún jugador llega a 30 puntos
+      this.finalizarTurno();    //finalizo el turno del jugador actual
+    } else if (this.jugadores[this.turnoActualIndex].vidas > 0) {   //si el jugador todavia tiene vidas
       if (this.preguntaActualIndex < this.preguntas.length - 1) {   //si no se llego al ultimo elemento del array de preguntas traidas de la api aumento el indice en 1
         this.preguntaActualIndex++;
       } else {    //si no, reinicio el array de pregutnas y el indice y hago otra solicitud a la api
@@ -84,7 +85,7 @@ export class MultiplayerGamePageComponent implements OnInit {
   //////////////api//////////////
   loading: boolean = false;
 
-  apiService: ApiService = inject(ApiService);
+  private apiService: ApiService = inject(ApiService);
 
   getInfoApi() {
     this.loading = true;  //inicio el estado de carga

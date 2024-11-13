@@ -18,7 +18,7 @@ export class TopScorersComponent implements OnInit {
   }
 
   //json-server
-  scoresService = inject(ScoresService)
+  private scoresService = inject(ScoresService)
 
   getSingleplayerScores() {
     this.scoresService.getSingleplayerScores().subscribe(

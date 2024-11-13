@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Jugador } from '../interfaces/jugador.interface';
+import { environment } from '../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ScoresService {
 
-  urlSingleplayerScores: string = "http://localhost:3000/singleplayer-scores";
+  private urlSingleplayerScores = environment.urlSingleplayerScores;
 
   constructor(private http:HttpClient) { }
 

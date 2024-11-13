@@ -26,7 +26,7 @@ export class MultiplayerBoardComponent {
 
 
   calcularDesplazamientoPorPuntos(puntos: number) {
-    const desplazamiento = puntos * 4.5;  //30p puntos equivale al 100 de la pista
+    const desplazamiento = puntos * 4.5;  //30p puntos equivale al 100% de la pista
     return `${desplazamiento}rem`;  //devuelve el valor en rem para aplicarle al margin left de la imagen de cada chaboncito
   }
 
@@ -34,7 +34,7 @@ export class MultiplayerBoardComponent {
     this.empezarTurnoEvent.emit(true);
   }
 
-  router = inject(Router);
+  private router = inject(Router);
   finalizarPartida() {  //en esta funcion se pasa a end-game el jugador con mas puntos por parametro y con lo de state se pasa el array de jugadores para que se pueda iniciar otra partida si se quiere
     const jugador = this.jugadorConMasPuntos();
     this.router.navigate(['/endgame', 'multiplayer', jugador.nombre, jugador.puntos], { state: { jugadores: this.jugadores } });  
