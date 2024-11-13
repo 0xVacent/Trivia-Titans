@@ -75,3 +75,29 @@ bottom: 1.875rem;
     margin-top: -0.625rem;
     margin-bottom: -1.25rem;
 }
+
+
+@media (max-width: 1920px) {
+    .turn{
+        background-color: #35f7ff;
+        border-radius: 6.25rem;
+        border: 0.25rem solid black;
+        height: 5rem;
+        width: 30.5rem;
+        right: 26.25rem;
+        bottom: 11.5rem;
+    }
+    
+    .turn h2{
+        font-size: 3.5rem;
+    }
+
+    .contenedor button{
+        border-radius: 2.2rem;
+        width: 20rem;
+        height: 9.375rem;
+        border: 0.25rem solid black;
+        font-size: 3.2rem;
+        -webkit-text-stroke-width: 0.12rem;
+    }
+}

@@ -65,9 +65,23 @@ a {
     height: auto;
     width: 18.75rem;
     transition: transform 0.3s;
-
+    cursor: pointer;
 }
 
 .logo2:hover {
     transform: scale(1.05);
+}
+
+@media (max-width: 1920px) {
+    .logo2 {
+        width: 15rem;
+    }
+
+    .conteinedor {
+        gap: 1.25rem;
+    }
+
+    .contenedor {
+        height: 90vh;
+    }
 }

@@ -61,7 +61,7 @@ export class SingleplayerGamePageComponent implements OnInit {
     this.getInfoApi();
   }
 
-  apiService: ApiService = inject(ApiService);
+  private apiService: ApiService = inject(ApiService);
 
   getInfoApi() {
     this.loading = true;  //inicio el estado de carga

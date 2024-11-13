@@ -40,7 +40,7 @@ export class EndGameComponent implements OnInit {
     this.resultadoGuardado = false;
   }
 
-  router = inject(Router);
+  private router = inject(Router);
   tryAgain() {
     if (this.modo === 'multiplayer') {
       this.router.navigate(["/multiplayer-game"], { state: { jugadores: this.jugadores } });  //redirijo a multiplayer-game y paso el array de los jugadores para empezar otra partida con los mismos
@@ -50,7 +50,7 @@ export class EndGameComponent implements OnInit {
   }
 
   //json-server
-  scoresService = inject(ScoresService);
+  private scoresService = inject(ScoresService);
 
   //hago un post del resultado del jugador en el json-server
   postScore() {

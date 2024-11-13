@@ -2,8 +2,6 @@ import { Component, OnInit, OnDestroy, inject, Input, Output, EventEmitter } fro
 import { RouterModule } from '@angular/router';
 import { PreguntaApi, Respuesta } from '../../interfaces/pregunta.interface';
 import { CommonModule } from '@angular/common';
-import { ApiService } from '../../services/api.service';
-import { ApiTrivia } from '../../interfaces/api-trivia.interface';
 
 @Component({
   selector: 'app-pregunta',

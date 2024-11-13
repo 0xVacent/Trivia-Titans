@@ -43,3 +43,15 @@
     display: flex;
     justify-content: center;
 }
+
+@media (max-width: 1920px) {
+    .top-scorers-table {
+        width: 20rem;
+        margin: 0 auto;
+        border-collapse: collapse;
+        border-radius: 1.25rem;
+        overflow: hidden;
+        background-color: #2ef5fccc;
+    
+    }
+}

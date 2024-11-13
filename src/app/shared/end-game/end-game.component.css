@@ -107,3 +107,116 @@
     transform: scale(1.02);
     transition: 0.3s;
 }
+
+@media (max-width: 1920px) {
+.cuadro{
+    height:25.25rem ;
+    width:40rem;
+    background-color: #35f7ff;
+    border-radius: 2.5rem;
+    border: 0.25rem solid black;
+    box-shadow: 0.125rem 0.125rem 0.625rem rgba(0, 0, 0, 0.3), inset -0.0625rem -0.0625rem 0.1875rem rgba(255, 255, 255, 0.5);
+    background-image: linear-gradient(135deg, #a8e6ff, #35f7ff);
+}
+
+.cuadro h3{
+    font-family: 'Cinzel';
+    font-size: 3rem;
+    color: black;
+    -webkit-text-stroke-color: gray;
+    -webkit-text-stroke-width: 0.1rem; 
+    margin:0 auto;
+}
+.score{
+    background-color: #fda839;
+    width: 9.25rem;
+    height: 9.25rem;
+    margin: 0 auto;
+    border: 0.25rem solid black;
+    box-shadow: 0.125rem 0.125rem 0.625rem rgba(0, 0, 0, 0.3), inset -0.0625rem -0.0625rem 0.1875rem rgba(255, 255, 255, 0.5);
+    background-image: linear-gradient(135deg, #fdd36c, #fda839);
+}
+.score h2{
+    color: black;
+    font-size: 6.5rem;
+    text-align: center ;
+    margin-top: 0.9375rem;
+    -webkit-text-stroke-color: gray;
+    -webkit-text-stroke-width: 0.15rem; 
+}
+.points{
+    font-size: 2.5rem;
+    font-family: 'Cinzel';
+    color: black;
+    -webkit-text-stroke-color: gray;
+    -webkit-text-stroke-width: 0.07rem; 
+    margin:0 auto;
+}
+.frase{
+    font-size: 1.7rem;
+    font-family: 'Cinzel';
+    color: black;
+    -webkit-text-stroke-color: gray;
+    -webkit-text-stroke-width: 0.05rem; 
+}
+.cuadro button{
+    background-color: #fda839;
+    border-radius: 2.5rem;
+    border: 0.25rem solid black;
+    width: 10.5rem;
+    height: 4rem;
+    transition: transform 0.3s;
+    margin: 0.25rem;
+    margin-top: -0.2rem;  /* Ajusta este valor para mover el botón más arriba */
+    box-shadow: 0.125rem 0.125rem 0.625rem rgba(0, 0, 0, 0.3), inset -0.0625rem -0.0625rem 0.1875rem rgba(255, 255, 255, 0.5);
+    background-image: linear-gradient(135deg, #fdd36c, #fda839);
+}
+.cuadro button h2{
+    font-size: 1.7rem;
+    font-family: 'Cinzel';
+    color: black;
+    -webkit-text-stroke-color: gray;
+    -webkit-text-stroke-width: 0.05rem; 
+    margin: 0 auto;
+}
+.cuadro button:hover{
+    transform: scale(1.05);
+
+}
+.top-scorers-table {
+    width: 24rem;
+    margin: 0 auto;
+    margin-bottom: 0.5rem;
+    border-collapse: collapse;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    background-color: #2ef5fccc;
+
+}
+
+.top-scorers-table th,
+.top-scorers-table td {
+
+    color: black;
+    text-align: center;
+    font-size: 2.5rem;
+    font-family: 'GreekFreak', sans-serif;
+    font-optical-sizing: auto;
+    /* Usa la fuente que ya estás usando */
+}
+
+.top-scorers-table thead {
+    color: black;
+    background-color: #0083afbd;
+}
+
+.top-scorers-table tr:nth-child(even) {
+    background-color: #fda727d0;
+}
+
+.top-scorers-table tbody tr:hover {
+    background-color: #ddd;
+    transform: scale(1.02);
+    transition: 0.3s;
+}
+}

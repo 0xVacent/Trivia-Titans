@@ -176,7 +176,78 @@ padding-bottom: 0;
 }
 
 .vida{
-height: 3.125rem;
-width: auto;
+    height: 3.125rem;
+    width: auto;
 }
 
+@media (max-width: 1920px) {
+    .contador {
+        height: 5rem;
+        width: 5rem;
+        top: 7rem;
+        left: 29rem;
+        border: 0.25rem solid black;
+        border-style: dashed;
+    }
+
+    .contador h2 {
+        line-height: 0.8;
+        font-size: 2.5rem;
+    }
+
+    .pregunta {
+        height: 5.5rem;
+        width: 35rem;
+        border: 0.25rem solid black;
+        border-radius: 2rem;
+    }
+
+    .pregunta h2 {
+        font-size: 1.4rem;
+    }
+
+    .respuestas li {
+        border: 0.25rem solid black;
+        height: 4rem;
+        width: 35rem;
+    }
+
+    .respuestas li h2 {
+        font-size: 1.4rem;
+    }
+
+    .button {
+        border: 0.25rem solid black;
+        width: 20rem;
+        height: 4rem;
+        top: 48rem;
+        left: 9rem;
+    }
+
+    .button h2 {
+        font-size: 1.8rem;
+    }
+
+    .category {
+        width: 11rem;
+        top: 5rem;
+        left: -1rem; /* Ajusta según lo necesario */
+    }
+
+    .category h2 {
+        font-size: 1.65rem;
+    }
+
+    .vidas{
+        height: 12.5rem;
+        width: 20rem;
+        position: absolute;
+        right: -3.8rem;
+        top: 13.875rem;
+    }
+
+    .vida{
+        height: 2.5rem;
+        width: auto;
+    }
+}
