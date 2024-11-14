@@ -101,3 +101,9 @@ bottom: 1.875rem;
         -webkit-text-stroke-width: 0.12rem;
     }
 }
+
+@media (max-width: 1500px) {
+    .contenedor {
+        zoom: 70%;
+    }
+}

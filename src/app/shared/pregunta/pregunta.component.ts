@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy, inject, Input, Output, EventEmitter } fro
 import { RouterModule } from '@angular/router';
 import { PreguntaApi, Respuesta } from '../../interfaces/pregunta.interface';
 import { CommonModule } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
+import { timeout } from 'rxjs';
 
 @Component({
   selector: 'app-pregunta',
@@ -77,13 +79,15 @@ export class PreguntaComponent implements OnInit, OnDestroy {
     }, 1000)
   }
 
+  private toast = inject(ToastrService); //para usar las alertas de toastr
   seleccionarRespuesta(respuesta: Respuesta) {   //funcion que cambia el estado de respuestaSeleccionada a true para establecer que ya se eligio una respuesta
     if (!this.isRespondida) { //si no se eligio una respuesta, dejo elegir una, si no, no
       this.isRespondida = true;
       this.esCorrecta = respuesta.isCorrect;
       clearInterval(this.intervalId);  // detenemos el intervalo cuando el componente se destruye
     } else {
-      alert("ya elegiste una respuesta tramposo");
+      //alert("ya elegiste una respuesta tramposo");
+      this.toast.info("You already chose an answer, cheater ;-)", "", { timeOut: 1000 }); //alerta cuando ya se habia guardado antteriormente
     }
   }
 

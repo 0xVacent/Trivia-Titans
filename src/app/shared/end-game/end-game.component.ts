@@ -2,6 +2,7 @@ import { Jugador } from './../../interfaces/jugador.interface';
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { ScoresService } from '../../services/scores.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -57,7 +58,7 @@ export class EndGameComponent implements OnInit {
     this.scoresService.postSingleplayerScore(this.jugador).subscribe(
       {
         next: (score) => {
-          alert(`${score.nombre}'s score was saved`);
+          console.log(`${score.nombre}'s score was saved`);
         },
         error: (err: Error) => {
           console.log(err.message);
@@ -67,14 +68,15 @@ export class EndGameComponent implements OnInit {
   }
 
   resultadoGuardado: boolean = false;
-
+  private toast = inject(ToastrService); //para usar las alertas de toastr
   //funcion relacionada al boton de save score
   guardarResultado() {
     if (!this.resultadoGuardado) { //si el resultado no fue guardado todavia
       this.postScore();
       this.resultadoGuardado = true;
+      this.toast.success(`${this.jugador.nombre}'s score was saved`, "", { timeOut: 1500 }); //alerta cuando se guarda
     } else {
-      alert("Score was already saved");
+      this.toast.info("Score was already saved", "", { timeOut: 1500 }); //alerta cuando ya se habia guardado antteriormente
     }
   }
 
