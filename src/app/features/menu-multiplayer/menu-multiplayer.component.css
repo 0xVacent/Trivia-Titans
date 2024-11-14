@@ -159,3 +159,55 @@
 .delete-btn:hover {
     transform: scale(1.15);
 }
+
+@media (max-width: 1500px) {
+
+    #players-container {
+        margin-top: 0rem;
+    }
+
+    #add-player-btn {
+        margin: 1rem auto;
+        margin-top: -1rem;
+        font-size: 1.2rem;
+        padding: 0.5rem 1rem; 
+    }
+
+    #start-game-btn {
+        margin-top: -1.2rem;
+        border: 0.2rem solid black;
+        width: 12rem; /* Reducir el ancho del botón */
+        height: 2rem; /* Reducir la altura */
+    }
+
+    #start-game-btn h2 {
+        -webkit-text-stroke-width: 0.01rem;
+        font-size: 1.3rem; /* Reducir el tamaño de la fuente */
+        line-height: 0.1;
+    }
+
+    .player {
+        border: 0.2rem solid black;
+        padding: 0.5rem; /* Reducir el padding dentro de los jugadores */
+    }
+
+    .player-name {
+        font-size: 1rem; /* Reducir el tamaño del texto */
+        width: 50%; /* Ajustar el ancho */
+    }
+
+    .color-picker {
+        width: 70%; /* Ajustar el ancho del picker */
+    }
+
+    .color-option {
+        border: 0.08rem solid black;
+        width: 1.5rem; /* Reducir el tamaño de los colores */
+        height: 1.5rem; /* Reducir el tamaño de los colores */
+    }
+
+    .delete-btn {
+        font-size: 0.9rem; /* Reducir el tamaño del botón de eliminar */
+        top: 0.5rem; /* Ajustar la posición */
+    }
+}
