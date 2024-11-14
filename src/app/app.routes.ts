@@ -7,6 +7,7 @@ import { SingleplayerGamePageComponent } from './pages/singleplayer-game-page/si
 import { EndGameComponent } from './shared/end-game/end-game.component';
 import { MultiplayerBoardComponent } from './features/multiplayer-board/multiplayer-board.component';
 import { MultiplayerGamePageComponent } from './pages/multiplayer-game-page/multiplayer-game-page.component';
+import { endgameGuardFn } from './gameGuard/guard/endgame.guard-fn';
 
 export const routes: Routes = [
     {
@@ -31,7 +32,8 @@ export const routes: Routes = [
     },
     {
         path: "endgame/:modo/:nombre/:puntos",    //redirecciona con los puntos obtenidos en el juego
-        component: EndGameComponent
+        component: EndGameComponent,
+        canActivate: [endgameGuardFn]
     },
     {
         path: "multiplayer-game",

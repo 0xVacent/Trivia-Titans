@@ -2,6 +2,7 @@ import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular
 import { Router, RouterModule } from '@angular/router';
 import { Jugador } from '../../interfaces/jugador.interface';
 import { CommonModule } from '@angular/common';
+import { GameService } from '../../gameGuard/service/game.service';
 
 @Component({
   selector: 'app-multiplayer-board',
@@ -35,8 +36,10 @@ export class MultiplayerBoardComponent {
   }
 
   private router = inject(Router);
+  private gameService = inject(GameService);
   finalizarPartida() {  //en esta funcion se pasa a end-game el jugador con mas puntos por parametro y con lo de state se pasa el array de jugadores para que se pueda iniciar otra partida si se quiere
     const jugador = this.jugadorConMasPuntos();
+    this.gameService.setPartidaTerminada(true); //habilito a que se pueda ir a la pantalla de endgame (esto porque usamos un guard para que si no se jugo ninguna partida, no se pueda ir a la pantalla de engame)
     this.router.navigate(['/endgame', 'multiplayer', jugador.nombre, jugador.puntos], { state: { jugadores: this.jugadores } });  
   }
 

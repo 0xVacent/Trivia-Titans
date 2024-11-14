@@ -37,7 +37,7 @@ export class EndGameComponent implements OnInit {
       this.jugadores = history.state.jugadores || []; //agarro los jugadores si vengo del modo multiplayer
       this.jugadoresOrdenados = this.jugadores.slice().sort((a, b) => b.puntos - a.puntos); //guardo los jugadores ordenados en un array aparte para no perder el orden original de los jugadores en la partida por si se quiere iniciar otra
     }
-
+    
     this.resultadoGuardado = false;
   }
 
