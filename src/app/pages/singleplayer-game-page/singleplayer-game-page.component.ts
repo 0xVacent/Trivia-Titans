@@ -5,6 +5,7 @@ import { ApiService } from '../../services/api.service';
 import { PreguntaComponent } from "../../shared/pregunta/pregunta.component";
 import { ActivatedRoute, Router } from '@angular/router';
 import { Jugador } from '../../interfaces/jugador.interface';
+import { GameService } from '../../gameGuard/service/game.service';
 
 @Component({
   selector: 'app-singleplayer-game-page',
@@ -28,7 +29,8 @@ export class SingleplayerGamePageComponent implements OnInit {
   preguntaActualIndex: number = 0;  //indice del array de preguntas
 
   constructor(private router: Router,
-              private activatedRoute: ActivatedRoute  //para poder recibir parametros enviados por url
+              private activatedRoute: ActivatedRoute,  //para poder recibir parametros enviados por url
+              private gameService: GameService
   ) { }
 
   pasarSiguientePregunta(esCorrecta: boolean) {
@@ -51,6 +53,7 @@ export class SingleplayerGamePageComponent implements OnInit {
         this.preguntaActualIndex = 0;
       }
     } else {  //si el jugador no tiene mas vidas, navego a la pagina de endgame y llevo los datos de puntos y nombre del jugador
+      this.gameService.setPartidaTerminada(true); //habilito a que se pueda ir a la pantalla de endgame (esto porque usamos un guard para que si no se jugo ninguna partida, no se pueda ir a la pantalla de engame)
       this.router.navigate(['/endgame', 'singleplayer', this.jugador.nombre, this.jugador.puntos]);
     }
   }
