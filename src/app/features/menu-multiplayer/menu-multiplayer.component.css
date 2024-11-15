@@ -211,3 +211,69 @@
         top: 0.5rem; /* Ajustar la posición */
     }
 }
+        /* Contenedor del menú desplegable */
+
+
+        .dropdown-wrapper {
+            display: flex;
+            gap: 20px; /* Espacio entre los menús */
+        }
+
+        /* Contenedor del menú desplegable */
+        .dropdown-container {
+            position: relative;
+            display: inline-block;
+            font-family: Arial, sans-serif;
+            width: 200px; /* Ajusta el ancho si es necesario */
+        }
+
+        /* Estilo del texto explicativo */
+        .dropdown-label {
+            background-color: #35f7ff;
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+            color: black;
+            margin-bottom: 5px;
+            display: block;
+            font-family: 'GreekFreak';
+            border: 3px solid black;
+            border-radius: 50px;
+            height: 30px;
+            padding-top: 10px;
+        }
+
+        /* Estilo del selector */
+        .dropdown-select {
+            background-color: #fda839;
+            color: black; 
+            font-size: 16px;
+            font-weight: bold;
+            padding: 12px 20px;
+            border: 3px solid black;
+            border-radius: 8px;
+            cursor: pointer;
+            appearance: none;
+            outline: none;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s;
+            width: 100%;
+            padding-right: 40px; /* Espacio para la flecha */
+        }
+
+        /* Efecto hover */
+        .dropdown-select:hover {
+            transform: scale(1.05);
+        }
+
+        /* Flecha personalizada */
+        .dropdown-container::after {
+            content: '▼';
+            position: absolute;
+            right: 15px;
+            top: 70%;
+            transform: translateY(-50%);
+            color: #FFD700;
+            pointer-events: none;
+            font-size: 14px;
+        }
