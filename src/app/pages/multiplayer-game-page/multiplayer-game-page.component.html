@@ -1,5 +1,7 @@
 @if (!enTurno) {
     <app-multiplayer-board
+        [vidasPartida]="vidasJugadores"
+        [tiempoPartida]="tiempoElegido"
         [jugadores]="jugadores"
         [jugadorEnTurno]="turnoActualIndex"
         [partidaFinalizada]="finPartida"
@@ -16,6 +18,7 @@
 
     @if (preguntas.length > 0) {
         <app-pregunta
+            [contador]="tiempoElegido"
             [vidas] = "jugadores[turnoActualIndex].vidas"
             [pregunta]="preguntas[preguntaActualIndex]"
             (preguntaRespondida)="pasarSiguientePregunta($event)">

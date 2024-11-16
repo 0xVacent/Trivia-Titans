@@ -41,21 +41,21 @@
     <div class="dropdown-wrapper">
         <div class="dropdown-container">
             <label class="dropdown-label">Time</label>
-            <select class="dropdown-select">
-                <option value="1">10</option>
-                <option value="2">20</option>
-                <option value="3" selected>30</option> <!-- Opción predeterminada -->
-                <option value="4">40</option>
-                <option value="5">50</option>
+            <select class="dropdown-select" [(ngModel)]="tiempoElegido">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+                <option value="50">50</option>
             </select>
         </div>
     
         <div class="dropdown-container">
-            <label class="dropdown-label">Lifes</label>
-            <select class="dropdown-select">
+            <label class="dropdown-label">Lives</label>
+            <select class="dropdown-select" [(ngModel)]="vidasElegidas">
                 <option value="1">1</option>
                 <option value="2">2</option>
-                <option value="3" selected>3</option> <!-- Opción predeterminada -->
+                <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
             </select>

@@ -5,6 +5,7 @@ import { ApiService } from '../../services/api.service';
 import { PreguntaApi, Respuesta } from '../../interfaces/pregunta.interface';
 import { ApiTrivia } from '../../interfaces/api-trivia.interface';
 import { PreguntaComponent } from "../../shared/pregunta/pregunta.component";
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-multiplayer-game-page',
@@ -17,6 +18,9 @@ export class MultiplayerGamePageComponent implements OnInit {
 
   jugadores: Jugador[] = [];
 
+  vidasJugadores: number = 3; //3 por defecto
+  tiempoElegido: number = 30; //30 por defecto
+
   turnoActualIndex = 0; //indice del array de jugadores del jugador que tiene el turno
   enTurno: boolean = false; //booleano para ocultar el tablero si se esta en un turno
 
@@ -25,12 +29,20 @@ export class MultiplayerGamePageComponent implements OnInit {
   preguntas: PreguntaApi[] = [];  //arrayDePreguntas al que van las respuestas de la api
   preguntaActualIndex: number = 0;  //indice del array de preguntas
 
+  private activatedRoute = inject(ActivatedRoute);
+
   ngOnInit(): void {
+    //recibo las vidas y el tiempo para la configuracion de la partida a traves de la url
+    this.activatedRoute.params.subscribe(param => {
+      this.vidasJugadores= +param["vidas"];
+      this.tiempoElegido = +param["tiempo"];
+    });
+
     //traigo los jugadores pasados por url en el componente menu-multiplayer en la funcion iniciarJuego()
     this.jugadores = (history.state.jugadores || []).map((jugador: Jugador) => ({
       ...jugador,
       puntos: 0,  // inicializa puntos en 0
-      vidas: 3    // inicializa vidas en 3
+      vidas: this.vidasJugadores    // inicializa vidas con la cantidad traida por la url
     }));
 
     console.log(this.jugadores);

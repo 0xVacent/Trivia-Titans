@@ -160,6 +160,78 @@
     transform: scale(1.15);
 }
 
+/* Contenedor del menú desplegable */
+.dropdown-wrapper {
+    position: absolute;
+    top: 55%;
+    right: 12.5vw; /* Ajusta esta distancia para acercarlo o alejarlo del borde derecho */
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem; /* Espacio entre los menús */
+}
+
+/* Contenedor del menú desplegable */
+.dropdown-container {
+    position: relative;
+    display: inline-block;
+    font-family: Arial, sans-serif;
+    width: 200px;
+    /* Ajusta el ancho si es necesario */
+}
+
+/* Estilo del texto explicativo */
+.dropdown-label {
+    background-color: #35f7ff;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 5px;
+    display: block;
+    font-family: 'GreekFreak';
+    border: 3px solid black;
+    border-radius: 50px;
+    height: 30px;
+    padding-top: 10px;
+}
+
+/* Estilo del selector */
+.dropdown-select {
+    background-color: #fda839;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 20px;
+    border: 3px solid black;
+    border-radius: 8px;
+    cursor: pointer;
+    appearance: none;
+    outline: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s;
+    width: 100%;
+    padding-right: 40px;
+    /* Espacio para la flecha */
+}
+
+/* Efecto hover */
+.dropdown-select:hover {
+    transform: scale(1.05);
+}
+
+/* Flecha personalizada */
+.dropdown-container::after {
+    content: '▼';
+    position: absolute;
+    right: 15px;
+    top: 70%;
+    transform: translateY(-50%);
+    color: #FFD700;
+    pointer-events: none;
+    font-size: 14px;
+}
+
 @media (max-width: 1500px) {
 
     #players-container {
@@ -170,110 +242,74 @@
         margin: 1rem auto;
         margin-top: -1rem;
         font-size: 1.2rem;
-        padding: 0.5rem 1rem; 
+        padding: 0.5rem 1rem;
     }
 
     #start-game-btn {
         margin-top: -1.2rem;
         border: 0.2rem solid black;
-        width: 12rem; /* Reducir el ancho del botón */
-        height: 2rem; /* Reducir la altura */
+        width: 12rem;
+        /* Reducir el ancho del botón */
+        height: 2rem;
+        /* Reducir la altura */
     }
 
     #start-game-btn h2 {
         -webkit-text-stroke-width: 0.01rem;
-        font-size: 1.3rem; /* Reducir el tamaño de la fuente */
+        font-size: 1.3rem;
+        /* Reducir el tamaño de la fuente */
         line-height: 0.1;
     }
 
     .player {
         border: 0.2rem solid black;
-        padding: 0.5rem; /* Reducir el padding dentro de los jugadores */
+        padding: 0.5rem;
+        /* Reducir el padding dentro de los jugadores */
     }
 
     .player-name {
-        font-size: 1rem; /* Reducir el tamaño del texto */
-        width: 50%; /* Ajustar el ancho */
+        font-size: 1rem;
+        /* Reducir el tamaño del texto */
+        width: 50%;
+        /* Ajustar el ancho */
     }
 
     .color-picker {
-        width: 70%; /* Ajustar el ancho del picker */
+        width: 70%;
+        /* Ajustar el ancho del picker */
     }
 
     .color-option {
         border: 0.08rem solid black;
-        width: 1.5rem; /* Reducir el tamaño de los colores */
-        height: 1.5rem; /* Reducir el tamaño de los colores */
+        width: 1.5rem;
+        /* Reducir el tamaño de los colores */
+        height: 1.5rem;
+        /* Reducir el tamaño de los colores */
     }
 
     .delete-btn {
-        font-size: 0.9rem; /* Reducir el tamaño del botón de eliminar */
-        top: 0.5rem; /* Ajustar la posición */
+        font-size: 0.9rem;
+        /* Reducir el tamaño del botón de eliminar */
+        top: 0.5rem;
+        /* Ajustar la posición */
+    }
+
+    .dropdown-wrapper {
+        position: absolute;
+        top: 64%;
+        right: 10rem; /* Ajusta esta distancia para acercarlo o alejarlo del borde derecho */
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem; /* Espacio entre los menús */
+    }
+
+    .dropdown-label {
+        font-size: 1.2rem;
+        height: 30px;
+    }
+    
+    .dropdown-select {
+        font-size: 1rem;
     }
 }
-        /* Contenedor del menú desplegable */
-
-
-        .dropdown-wrapper {
-            display: flex;
-            gap: 20px; /* Espacio entre los menús */
-        }
-
-        /* Contenedor del menú desplegable */
-        .dropdown-container {
-            position: relative;
-            display: inline-block;
-            font-family: Arial, sans-serif;
-            width: 200px; /* Ajusta el ancho si es necesario */
-        }
-
-        /* Estilo del texto explicativo */
-        .dropdown-label {
-            background-color: #35f7ff;
-            text-align: center;
-            font-size: 25px;
-            font-weight: bold;
-            color: black;
-            margin-bottom: 5px;
-            display: block;
-            font-family: 'GreekFreak';
-            border: 3px solid black;
-            border-radius: 50px;
-            height: 30px;
-            padding-top: 10px;
-        }
-
-        /* Estilo del selector */
-        .dropdown-select {
-            background-color: #fda839;
-            color: black; 
-            font-size: 16px;
-            font-weight: bold;
-            padding: 12px 20px;
-            border: 3px solid black;
-            border-radius: 8px;
-            cursor: pointer;
-            appearance: none;
-            outline: none;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-            transition: transform 0.2s;
-            width: 100%;
-            padding-right: 40px; /* Espacio para la flecha */
-        }
-
-        /* Efecto hover */
-        .dropdown-select:hover {
-            transform: scale(1.05);
-        }
-
-        /* Flecha personalizada */
-        .dropdown-container::after {
-            content: '▼';
-            position: absolute;
-            right: 15px;
-            top: 70%;
-            transform: translateY(-50%);
-            color: #FFD700;
-            pointer-events: none;
-            font-size: 14px;
-        }

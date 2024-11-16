@@ -31,12 +31,17 @@ export const routes: Routes = [
         component: SingleplayerGamePageComponent
     },
     {
-        path: "endgame/:modo/:nombre/:puntos",    //redirecciona con los puntos obtenidos en el juego
+        path: "endgame/:modo/:nombre/:puntos",    //redirecciona con el nombre y los puntos
         component: EndGameComponent,
         canActivate: [endgameGuardFn]
     },
     {
-        path: "multiplayer-game",
+        path: "endgame/:modo/:nombre/:puntos/:vidas/:tiempo",    //redirecciona con el nombre, los puntos obtenidos, el tiempo y las vidas para el modo multiplayer
+        component: EndGameComponent,
+        canActivate: [endgameGuardFn]
+    },
+    {
+        path: "multiplayer-game/:vidas/:tiempo",
         component: MultiplayerGamePageComponent
     },
     {
