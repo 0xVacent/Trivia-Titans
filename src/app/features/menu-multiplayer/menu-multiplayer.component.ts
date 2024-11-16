@@ -13,7 +13,10 @@ import { FormsModule } from '@angular/forms';
 })
 export class MenuMultiplayerComponent {
   coloresUsados:Array<string> = [];
-  arrayJugadores: Array<Jugador> = [];  
+  arrayJugadores: Array<Jugador> = [];
+
+  tiempoElegido: number = 30;
+  vidasElegidas: number = 3;
 
  agregarJugador(){
     if (this.arrayJugadores.length < 4) {
@@ -63,7 +66,7 @@ export class MenuMultiplayerComponent {
 
   private router = inject(Router);
   iniciarJuego() {
-    this.router.navigate(["/multiplayer-game"], { state: { jugadores: this.arrayJugadores } });
+    this.router.navigate(["/multiplayer-game", this.vidasElegidas, this.tiempoElegido], { state: { jugadores: this.arrayJugadores } });
   }
 }
 

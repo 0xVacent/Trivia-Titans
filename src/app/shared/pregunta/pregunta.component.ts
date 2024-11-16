@@ -3,7 +3,6 @@ import { RouterModule } from '@angular/router';
 import { PreguntaApi, Respuesta } from '../../interfaces/pregunta.interface';
 import { CommonModule } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
-import { timeout } from 'rxjs';
 
 @Component({
   selector: 'app-pregunta',
@@ -54,10 +53,14 @@ export class PreguntaComponent implements OnInit, OnDestroy {
   esCorrecta: boolean | undefined;
 
   //contador de tiempo
-  contador: number = 20;
+  @Input()                 //es Input pq para la partida multiplayer se puede elegir el tiempo por pregunta
+  contador: number = 20;  //valor por defecto para la partida singleplayer
   intervalId: any;
+  
+  tiempo: number = 0;
 
   ngOnInit() {
+    this.tiempo = this.contador;    //se guarda el tiempo inicial del contador antes de que empieze la cuenta atras
     this.iniciarContador();
   }
 
@@ -92,17 +95,17 @@ export class PreguntaComponent implements OnInit, OnDestroy {
   }
 
   siguientePregunta() {
-    this.preguntaRespondida.emit(this.esCorrecta);  // Emitimos el evento al componente padre
-    this.resetearEstado();           // Reseteamos el estado del componente para la siguiente pregunta
+    this.preguntaRespondida.emit(this.esCorrecta);  // emitimos el evento al componente padre
+    this.resetearEstado();           // reseteamos el estado del componente para la siguiente pregunta
   }
 
   resetearEstado() {
     this.isRespondida = false;
-    this.contador = 20;  // Restablecemos el contador
-    this.iniciarContador();  // Reiniciamos el contador
+    this.contador = this.tiempo;  // restablecemos el contador con el que era su tiempo inicialmente
+    this.iniciarContador();  // reiniciamos el contador
   }
 
-  // Función para decodificar entidades HTML
+  // funcion para decodificar los textos de las preguntas
   decodeHtml(html: string): string {
     const txt = document.createElement("textarea");
     txt.innerHTML = html;
