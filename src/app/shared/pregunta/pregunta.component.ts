@@ -14,20 +14,6 @@ import { ToastrService } from 'ngx-toastr';
 
 export class PreguntaComponent implements OnInit, OnDestroy {
 
-  triviaResponse: PreguntaApi = {
-    tipoDePregunta: "multiple",
-    pregunta: "What are the names of the main characters in How I Met Your Mother?",
-    categoria: "Television",
-
-    respuestas: [
-      { texto: "Ted, Robin, Barney, Lily, Marshall", isCorrect: true },
-      { texto: "Joey, Chandler, Rachel, Monica", isCorrect: false },
-      { texto: "Sheldon, Leonard, Penny, Howard", isCorrect: false },
-      { texto: "Ross, Rachel, Phoebe, Monica", isCorrect: false }
-    ]
-
-  }
-
   @Input()
   pregunta: PreguntaApi = {
     categoria:'',

@@ -54,7 +54,7 @@ export class SingleplayerGamePageComponent implements OnInit {
       }
     } else {  //si el jugador no tiene mas vidas, navego a la pagina de endgame y llevo los datos de puntos y nombre del jugador
       this.gameService.setPartidaTerminada(true); //habilito a que se pueda ir a la pantalla de endgame (esto porque usamos un guard para que si no se jugo ninguna partida, no se pueda ir a la pantalla de engame)
-      this.router.navigate(['/endgame', 'singleplayer', this.jugador.nombre, this.jugador.puntos]);
+      this.router.navigate(['/endgame', 'singleplayer', this.jugador.nombre.trim(), this.jugador.puntos]);
     }
   }
 
@@ -72,7 +72,6 @@ export class SingleplayerGamePageComponent implements OnInit {
     this.apiService.getInfoApi().subscribe({
       next: (info) => {
         this.preguntas = this.mapearPreguntas(info.results);  //mapeo el array traido de la api y se lo asigno al array de preguntas
-        console.log(this.preguntas);
         this.loading = false;  //finalizo el estado de carga si es que se recibe la respuesta
       },
       error: (err) => {

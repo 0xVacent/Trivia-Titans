@@ -25,7 +25,7 @@
 .playerName input {
     width: 31.25rem;
     height: 3.125rem;
-    padding: 0 1.25rem; /* Añade 20px de padding a los lados */
+    padding: 0 1.25rem;
     padding-top: 0.3125rem;
     font-size: 3rem;
     border-radius: 3.125rem;
@@ -34,7 +34,7 @@
     font-family: "GreekFreak";
     border: 0.1875rem solid black;
     -webkit-text-stroke-color: gray;
-    -webkit-text-stroke-width: 0.0938rem; /* Asegura que el padding no afecte el tamaño total del input */
+    -webkit-text-stroke-width: 0.0938rem;
 }
 
 .startGame {
@@ -42,9 +42,9 @@
     padding: 0.625rem 1.25rem;
     padding-top: 1.25rem;
     border-radius: 2.5rem;
-    display: inline-flex;  /* Usamos inline-flex para poder centrar contenido */
-    justify-content: center;  /* Centra el contenido horizontalmente */
-    align-items: center;  /* Centra el contenido verticalmente */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     width: 25rem;
     height: 3.125rem;
     overflow: hidden;

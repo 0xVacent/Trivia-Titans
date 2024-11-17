@@ -110,7 +110,7 @@
     overflow: hidden;
     top: 57rem;
     left: 11rem;
-     
+    cursor: pointer; 
     box-shadow: 0.125rem 0.125rem 0.625rem rgba(0, 0, 0, 0.3), inset -0.0625rem -0.0625rem 0.1875rem rgba(255, 255, 255, 0.5);
     background-image: linear-gradient(135deg, #a8e6ff, #35f7ff);
     margin-bottom: 0;
@@ -134,9 +134,9 @@
     border: 0.1875rem solid black;
     border-radius: 1.25rem;
     position: absolute;
-    left: 0rem; /* Ajusta según lo necesario */
-    top: 6.25rem; /* Comienza en la parte superior del contenedor */
-    z-index: 1; /* Asegúrate de que tenga prioridad de superposición */
+    left: 0rem;
+    top: 6.25rem;
+    z-index: 1;
     margin: 0;
     padding: 0.625rem;
     box-shadow: 0.125rem 0.125rem 0.625rem rgba(0, 0, 0, 0.3), inset -0.0625rem -0.0625rem 0.1875rem rgba(255, 255, 255, 0.5);
@@ -231,7 +231,7 @@ padding-bottom: 0;
     .category {
         width: 11rem;
         top: 5rem;
-        left: -1rem; /* Ajusta según lo necesario */
+        left: -1rem;
     }
 
     .category h2 {
@@ -312,7 +312,7 @@ padding-bottom: 0;
     .category {
         width: 8rem;
         top: 3.5rem;
-        left: 0rem; /* Ajusta según lo necesario */
+        left: 0rem;
     }
 
     .category h2 {

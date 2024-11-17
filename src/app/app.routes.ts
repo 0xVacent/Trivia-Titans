@@ -36,7 +36,7 @@ export const routes: Routes = [
         canActivate: [endgameGuardFn]
     },
     {
-        path: "endgame/:modo/:nombre/:puntos/:vidas/:tiempo",    //redirecciona con el nombre, los puntos obtenidos, el tiempo y las vidas para el modo multiplayer
+        path: "endgame/:modo/:nombre/:puntos/:vidas/:tiempo",    //redirecciona con el nombre, los puntos obtenidos, las vidas y el tiempo para el modo multiplayer
         component: EndGameComponent,
         canActivate: [endgameGuardFn]
     },

@@ -1,13 +1,9 @@
 #players-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    /* 2 columnas de tamaño igual */
     grid-gap: 1.25rem;
-    /* Espacio entre los cuadros */
     margin: 1.25rem auto;
-    /* Centra el contenedor */
     max-width: 37.5rem;
-    /* Anchura máxima del contenedor */
 }
 
 
@@ -60,7 +56,7 @@
 }
 
 
-/*Jugadores que se añaden cuando se toca el boton de añadir*/
+/*jugadores que se añaden cuando se toca el boton de añadir*/
 .player {
     display: flex;
     flex-direction: column;
@@ -78,7 +74,6 @@
     font-family: 'GreekFreak';
     text-align: center;
     padding: 0 1.25rem;
-    /* Añade 20px de padding a los lados */
     padding-top: 0.3125rem;
     border-radius: 1.25rem;
     width: 60%;
@@ -127,20 +122,18 @@
     background-color: yellow;
 }
 
-/* Color resaltado */
+/*color seleccionado*/
 .color-option.selected {
     border: 0.1875rem solid black;
-    /* Añade un borde alrededor del color seleccionado */
     width: 1rem;
     height: 1rem;
-    /* Achico el color que selecciona el jugador asi queda mas claro :)*/
 }
 
-/* Color deshabilitado para otros jugadores */
+/*color deshabilitado para otros jugadores*/
 .color-option.disabled {
     opacity: 0.5;
     pointer-events: none;
-    /* Evita que se pueda hacer clic en colores deshabilitados */
+    /*evita que se pueda hacer click en los colores deshabilitados*/
 }
 
 .delete-btn {
@@ -153,34 +146,31 @@
     cursor: pointer;
     font-size: 1.5rem;
     transition: 0.3s;
-
 }
 
 .delete-btn:hover {
     transform: scale(1.15);
 }
 
-/* Contenedor del menú desplegable */
+/*contenedor de los menus desplegables*/
 .dropdown-wrapper {
     position: absolute;
     top: 55%;
-    right: 12.5vw; /* Ajusta esta distancia para acercarlo o alejarlo del borde derecho */
+    right: 12.5vw;
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
-    gap: 1.25rem; /* Espacio entre los menús */
+    gap: 1.25rem;
 }
 
-/* Contenedor del menú desplegable */
+/*contenedor del menu desplegable*/
 .dropdown-container {
     position: relative;
     display: inline-block;
     font-family: Arial, sans-serif;
     width: 200px;
-    /* Ajusta el ancho si es necesario */
 }
 
-/* Estilo del texto explicativo */
 .dropdown-label {
     background-color: #35f7ff;
     text-align: center;
@@ -196,7 +186,6 @@
     padding-top: 10px;
 }
 
-/* Estilo del selector */
 .dropdown-select {
     background-color: #fda839;
     color: black;
@@ -212,15 +201,13 @@
     transition: transform 0.2s;
     width: 100%;
     padding-right: 40px;
-    /* Espacio para la flecha */
 }
 
-/* Efecto hover */
 .dropdown-select:hover {
     transform: scale(1.05);
 }
 
-/* Flecha personalizada */
+/*flecha personalizada*/
 .dropdown-container::after {
     content: '▼';
     position: absolute;
@@ -249,59 +236,48 @@
         margin-top: -1.2rem;
         border: 0.2rem solid black;
         width: 12rem;
-        /* Reducir el ancho del botón */
         height: 2rem;
-        /* Reducir la altura */
     }
 
     #start-game-btn h2 {
         -webkit-text-stroke-width: 0.01rem;
         font-size: 1.3rem;
-        /* Reducir el tamaño de la fuente */
         line-height: 0.1;
     }
 
     .player {
         border: 0.2rem solid black;
         padding: 0.5rem;
-        /* Reducir el padding dentro de los jugadores */
     }
 
     .player-name {
         font-size: 1rem;
-        /* Reducir el tamaño del texto */
         width: 50%;
-        /* Ajustar el ancho */
     }
 
     .color-picker {
         width: 70%;
-        /* Ajustar el ancho del picker */
     }
 
     .color-option {
         border: 0.08rem solid black;
         width: 1.5rem;
-        /* Reducir el tamaño de los colores */
         height: 1.5rem;
-        /* Reducir el tamaño de los colores */
     }
 
     .delete-btn {
         font-size: 0.9rem;
-        /* Reducir el tamaño del botón de eliminar */
         top: 0.5rem;
-        /* Ajustar la posición */
     }
 
     .dropdown-wrapper {
         position: absolute;
         top: 64%;
-        right: 10rem; /* Ajusta esta distancia para acercarlo o alejarlo del borde derecho */
+        right: 10rem;
         transform: translateY(-50%);
         display: flex;
         flex-direction: column;
-        gap: 1.25rem; /* Espacio entre los menús */
+        gap: 1.25rem;
     }
 
     .dropdown-label {

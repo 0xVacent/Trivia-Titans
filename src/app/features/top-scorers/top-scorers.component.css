@@ -10,12 +10,10 @@
 
 .top-scorers-table th,
 .top-scorers-table td {
-
     text-align: center;
     font-size: 1.5rem;
     font-family: 'GreekFreak', sans-serif;
     font-optical-sizing: auto;
-    /* Usa la fuente que ya estás usando */
 }
 
 .top-scorers-table thead {
