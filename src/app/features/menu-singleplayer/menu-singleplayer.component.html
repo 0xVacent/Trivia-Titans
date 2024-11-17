@@ -4,11 +4,10 @@
         <h2>Wait right there, Warrior. Tell us your name</h2>
         <input type="text" [(ngModel)]="nombreJugador">
 
-        <!-- si el jugador ingreso un nombre, se habilita el boton de empezar la partida -->
-        @if (nombreJugador.length > 0) {
-            <div><a [routerLink]="['/singleplayer-game', nombreJugador]" class="startGame">Start Game</a></div>
+        <!-- si el jugador ingreso un nombre valido (entre 1 y 17 caracteres), se habilita el boton de empezar la partida -->
+        @if (nombreJugador.trim().length > 0 && nombreJugador.trim().length < 18) {
+            <div><a [routerLink]="['/singleplayer-game', nombreJugador.trim().toLowerCase()]" class="startGame">Start Game</a></div>
         }
-
     </div>
 </div>
 

@@ -1,7 +1,7 @@
 <div class="contenedor">
     <a routerLink="/"><img class="logo2" src="/img/Logo-Trivia-Titans.png" alt="logo"></a>
 
-    <!-- Contenedor donde se agregan los jugadores cuando se clickea el boton para agregar -->
+    <!--contenedor donde se agregan los jugadores cuando se clickea el boton para agregar-->
     <div id="players-container">
         @for (jugador of arrayJugadores; track $index) {
         <div class="player">
@@ -26,22 +26,22 @@
         }
     </div>
 
-     <!-- Boton para empezar la partida (siempre y cuando sean 2 jugadores) -->
+     <!--boton para empezar la partida (siempre y cuando sean 2 jugadores)-->
     @if (sePuedeEmpezarJuego()) {
         <a (click)="iniciarJuego()" id="start-game-btn">
             <h2>Start Game</h2>
          </a>
     }
 
-    <!-- Botón para agregar otro jugador -->
+    <!--boton para agregar otro jugador-->
     @if (arrayJugadores.length < 4) {
         <button id="add-player-btn" (click)="agregarJugador()">+</button>
     }
     
     <div class="dropdown-wrapper">
         <div class="dropdown-container">
-            <label class="dropdown-label">Time</label>
-            <select class="dropdown-select" [(ngModel)]="tiempoElegido">
+            <label for="time" class="dropdown-label">Time</label>
+            <select id="time" class="dropdown-select" [(ngModel)]="tiempoElegido">
                 <option value="10">10</option>
                 <option value="20">20</option>
                 <option value="30">30</option>
@@ -51,8 +51,8 @@
         </div>
     
         <div class="dropdown-container">
-            <label class="dropdown-label">Lives</label>
-            <select class="dropdown-select" [(ngModel)]="vidasElegidas">
+            <label for="lives" class="dropdown-label">Lives</label>
+            <select id="lives" class="dropdown-select" [(ngModel)]="vidasElegidas">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>

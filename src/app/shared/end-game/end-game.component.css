@@ -59,6 +59,7 @@
     margin: 0.25rem;
     box-shadow: 0.125rem 0.125rem 0.625rem rgba(0, 0, 0, 0.3), inset -0.0625rem -0.0625rem 0.1875rem rgba(255, 255, 255, 0.5);
     background-image: linear-gradient(135deg, #fdd36c, #fda839);
+    cursor: pointer; 
 }
 .cuadro button h2{
     font-size: 2rem;
@@ -90,7 +91,6 @@
     font-size: 3rem;
     font-family: 'GreekFreak', sans-serif;
     font-optical-sizing: auto;
-    /* Usa la fuente que ya estás usando */
 }
 
 .top-scorers-table thead {
@@ -166,7 +166,7 @@
     height: 4rem;
     transition: transform 0.3s;
     margin: 0.25rem;
-    margin-top: -0.2rem;  /* Ajusta este valor para mover el botón más arriba */
+    margin-top: -0.2rem;
     box-shadow: 0.125rem 0.125rem 0.625rem rgba(0, 0, 0, 0.3), inset -0.0625rem -0.0625rem 0.1875rem rgba(255, 255, 255, 0.5);
 }
 .cuadro button h2{
@@ -200,7 +200,6 @@
     font-size: 2.5rem;
     font-family: 'GreekFreak', sans-serif;
     font-optical-sizing: auto;
-    /* Usa la fuente que ya estás usando */
 }
 
 .top-scorers-table thead {
@@ -252,7 +251,7 @@
     .cuadro button {
         width: 7.5rem;
         height: 3rem;
-        margin-top: -0.5rem; /* Mueve el botón aún más arriba */
+        margin-top: -0.5rem;
         border-radius: 2rem;
         border: 0.2rem solid black;
     }

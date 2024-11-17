@@ -56,8 +56,8 @@ export class MenuMultiplayerComponent {
     }
   }
 
-  sePuedeEmpezarJuego(): boolean {
-    if (this.arrayJugadores.length >= 2 && this.arrayJugadores.every(jugador => jugador.nombre && jugador.color)) {
+  sePuedeEmpezarJuego(): boolean {  //si hay 2 jugadores minimo y si tienen nombre (entre 1 y 17 caracteres) y color elegido
+    if (this.arrayJugadores.length >= 2 && this.arrayJugadores.every(jugador => jugador.nombre.trim() && jugador.color) && this.arrayJugadores.every(jugador => jugador.nombre.trim().length < 18)) {
       return true;
     } else {
       return false;
@@ -66,6 +66,10 @@ export class MenuMultiplayerComponent {
 
   private router = inject(Router);
   iniciarJuego() {
+    this.arrayJugadores = this.arrayJugadores.map(jugador => ({
+      ...jugador,
+      nombre: jugador.nombre.trim().toLowerCase()   // sacamos los espacios al inicio y al final y pasamos todos los nombres a minusculas para no tener problemas con la fuente
+    }));
     this.router.navigate(["/multiplayer-game", this.vidasElegidas, this.tiempoElegido], { state: { jugadores: this.arrayJugadores } });
   }
 }

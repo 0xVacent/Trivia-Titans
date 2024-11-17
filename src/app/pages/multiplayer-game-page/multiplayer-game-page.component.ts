@@ -105,7 +105,6 @@ export class MultiplayerGamePageComponent implements OnInit {
     this.apiService.getInfoApi().subscribe({
       next: (info) => {
         this.preguntas = this.mapearPreguntas(info.results);  //mapeo el array traido de la api y se lo asigno al array de preguntas
-        console.log(this.preguntas);
         this.loading = false;  //finalizo el estado de carga si es que se recibe la respuesta
       },
       error: (err) => {
