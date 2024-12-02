@@ -9,5 +9,28 @@
             <div><a [routerLink]="['/singleplayer-game', nombreJugador.trim().toLowerCase()]" class="startGame">Start Game</a></div>
         }
     </div>
+    <div class="dropdown-wrapper">
+        <div class="dropdown-container">
+            <label for="difficulty" class="dropdown-label">Difficulty</label>
+            <select id="difficulty" class="dropdown-select">
+                <option value="any">Any</option>
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+        </div>
+    
+        <div class="dropdown-container">
+            <label for="category" class="dropdown-label">Category</label>
+            <select id="category" class="dropdown-select">
+                <option value="any">Any</option>
+                <option value="9">General Knowledge</option>
+                <option value="17">Science & Nature</option>
+                <option value="21">Sports</option>
+                <option value="22">Geography</option>
+                <option value="23">History</option>
+            </select>
+        </div>
+    </div>
 </div>
 
