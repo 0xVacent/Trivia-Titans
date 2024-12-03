@@ -208,7 +208,9 @@ padding-bottom: 0;
 
     .respuestas li {
         border: 0.25rem solid black;
-        height: 4rem;
+        min-height: auto;
+        height: auto;
+        max-height: 4.5rem;
         width: 35rem;
     }
 
@@ -220,7 +222,7 @@ padding-bottom: 0;
         border: 0.25rem solid black;
         width: 20rem;
         height: 4rem;
-        top: 48rem;
+        top: 50rem;
         left: 9rem;
     }
 
@@ -287,12 +289,15 @@ padding-bottom: 0;
         margin-top: 0.5rem;
         border: 0.2rem solid black;
         border-radius: 1.7rem;
+        min-height: auto;
         height: auto;
+        max-height: 2.8rem;
         width: 35rem;
-        line-height: 0.2;
     }
 
     .respuestas li h2 {
+        margin-top: 0.4rem;
+        height: 100%;
         font-size: 1.2rem;
     }
 

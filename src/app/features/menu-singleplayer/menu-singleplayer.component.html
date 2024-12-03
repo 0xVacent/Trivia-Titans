@@ -6,13 +6,13 @@
 
         <!-- si el jugador ingreso un nombre valido (entre 1 y 17 caracteres), se habilita el boton de empezar la partida -->
         @if (nombreJugador.trim().length > 0 && nombreJugador.trim().length < 18) {
-            <div><a [routerLink]="['/singleplayer-game', nombreJugador.trim().toLowerCase()]" class="startGame">Start Game</a></div>
+            <div><a [routerLink]="['/singleplayer-game', nombreJugador.trim().toLowerCase(), categoriaElegida, dificultadElegida]" class="startGame">Start Game</a></div>
         }
     </div>
     <div class="dropdown-wrapper">
         <div class="dropdown-container">
             <label for="difficulty" class="dropdown-label">Difficulty</label>
-            <select id="difficulty" class="dropdown-select">
+            <select id="difficulty" class="dropdown-select" [(ngModel)]="dificultadElegida">
                 <option value="any">Any</option>
                 <option value="easy">Easy</option>
                 <option value="medium">Medium</option>
@@ -22,7 +22,7 @@
     
         <div class="dropdown-container">
             <label for="category" class="dropdown-label">Category</label>
-            <select id="category" class="dropdown-select">
+            <select id="category" class="dropdown-select" [(ngModel)]="categoriaElegida">
                 <option value="any">Any</option>
                 <option value="9">General Knowledge</option>
                 <option value="17">Science & Nature</option>
