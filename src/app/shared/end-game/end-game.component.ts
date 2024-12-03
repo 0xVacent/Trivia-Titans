@@ -27,6 +27,8 @@ export class EndGameComponent implements OnInit {
   modo: string = "";
   vidas?: number;
   tiempo?: number;
+  categoria?: string;
+  dificultad?: string;
   
   resultadoGuardado: boolean = false;
 
@@ -34,19 +36,25 @@ export class EndGameComponent implements OnInit {
 
   ngOnInit(): void {
     this.actRoute.params.subscribe(param => {
-      this.modo = param['modo'];             //agarro el valor del parametro "nombre" de la url y se lo asigno a this.nombreJugador
       this.jugador.nombre = param['nombre']  //agarro el valor del parametro "nombre" de la url y se lo asigno a this.nombreJugador
       this.jugador.puntos = +param['puntos'] //agarro el valor del parametro "puntos" de la url y se lo asigno a this.puntos. El + lo connvierte a numero
     });  
 
-    if (this.modo === "multiplayer") {  //si vengo del modo multiplayer
+    if (this.actRoute.snapshot.routeConfig?.path?.includes('multiplayer')) {  //si vengo del modo multiplayer
       this.actRoute.params.subscribe(param => {
+        this.modo = 'multiplayer';
         this.vidas = param['vidas'];      //agarro el valor del parametro "vidas" de la url
         this.tiempo = param['tiempo'];    //agarro el valor del parametro "tiempo" de la url
        });  
 
       this.jugadores = history.state.jugadores || []; //agarro los jugadores si vengo del modo multiplayer
       this.jugadoresOrdenados = this.jugadores.slice().sort((a, b) => b.puntos - a.puntos); //guardo los jugadores ordenados en un array aparte para no perder el orden original de los jugadores en la partida por si se quiere iniciar otra
+    } else if (this.actRoute.snapshot.routeConfig?.path?.includes('singleplayer')) {  //si vengo del modo singleplayer
+      this.actRoute.params.subscribe(param => {
+        this.modo = 'singleplayer';
+        this.categoria = param['categoria'];      //agarro el valor del parametro "categoria" de la url para el singleplayer
+        this.dificultad = param['dificultad'];    //agarro el valor del parametro "dificultad" de la url para el singleplayer
+       });
     }
     
     this.resultadoGuardado = false;
@@ -56,8 +64,8 @@ export class EndGameComponent implements OnInit {
   tryAgain() {
     if (this.modo === 'multiplayer') {
       this.router.navigate(["/multiplayer-game", this.vidas, this.tiempo], { state: { jugadores: this.jugadores } });  //redirijo a multiplayer-game con las vidasm el tiempo y el array de los jugadores para empezar otra partida con los mismos
-    } else {
-      this.router.navigate(['/singleplayer-game', this.jugador.nombre]);  //redirijo a singleplayer-game con el nombre para empezar otra partida
+    } else if (this.modo === 'singleplayer') {
+      this.router.navigate(['/singleplayer-game', this.jugador.nombre, this.categoria, this.dificultad]);  //redirijo a singleplayer-game con el nombre, la categoria y la dificultad para empezar otra partida
     }
   }
 

@@ -1,6 +1,5 @@
 .playerName {
     border: 0.3125rem solid black;
-
     background-color: #35f7ff;
     border-radius: 2.5rem;
     padding: 0;
@@ -57,12 +56,77 @@
     color: black;
     -webkit-text-stroke-color: gray;
     -webkit-text-stroke-width: 0.0938rem;
-
 }
 
 .startGame:hover {
     transform: scale(1.05);
+}
 
+.dropdown-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 1.25rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropdown-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3125rem;
+    text-align: left;
+    width: 12.5rem;
+    font-family: Arial, sans-serif;
+    pointer-events: none;
+}
+
+.dropdown-label {
+    background-color: #35f7ff;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 0.3125rem;
+    display: block;
+    font-family: 'GreekFreak';
+    border: 0.1875rem solid black;
+    border-radius: 3.125rem;
+    height: 1.875rem;
+    padding-top: 0.3125rem;
+    line-height: 1.4;
+}
+
+.dropdown-select {
+    background-color: #fda839;
+    color: black;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.75rem 1.25rem;
+    border: 0.1875rem solid black;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    pointer-events: auto;
+    appearance: none;
+    outline: none;
+    box-shadow: 0rem 0.25rem 0.5rem rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s;
+    width: 100%;
+    padding-right: 1.5rem;
+}
+
+.dropdown-select:hover {
+    transform: scale(1.05);
+}
+
+.dropdown-container::after {
+    content: '▼';
+    position: relative;
+    left: 11rem;
+    bottom: 1.875rem;
+    transform: translateY(-50%);
+    color: #FFD700;
+    pointer-events: none;
+    font-size: 0.875rem;
 }
 
 @media (max-width: 1920px) {
@@ -97,8 +161,9 @@
 
 @media (max-width: 1500px) {
     .playerName {
+        margin-top: -1.25rem;
         width: 25rem; 
-        height: 16rem; 
+        height: 14rem; 
         border: 0.2rem solid black;
         border-radius: 1.7rem;
     }
@@ -109,6 +174,7 @@
     }
 
     .playerName input {
+        margin-top: -1.25rem;
         width: 20rem; 
         height: 2rem;
         font-size: 2rem; 
@@ -118,75 +184,30 @@
     .startGame {
         border: 0.2rem solid black;
         border-radius: 1.7rem;
-        margin-top: 1.5rem;
+        margin-top: 0.8rem;
         width: 16rem; 
-        height: 1.5rem; 
-        font-size: 2rem; 
+        height: 0.9rem; 
+        font-size: 1.8rem; 
         -webkit-text-stroke-width: 0.07rem;
     }
-}
-.dropdown-wrapper {
 
-    display: flex; /* Alinea los dropdowns en fila */
-    flex-direction: row; /* Asegura disposición en fila */
-    gap: 1.25rem; /* Espaciado entre los dropdowns */
-    justify-content: center;
-    align-items: center;
-}
-
-.dropdown-container {
-    display: flex; /* Mantiene la etiqueta y el select alineados */
-    flex-direction: column; /* Etiqueta sobre el select */
-    gap: 0.3125rem;
-    text-align: left;
-    width: 12.5rem;
-    font-family: Arial, sans-serif;
-}
-
-.dropdown-label {
-    background-color: #35f7ff;
-    text-align: center;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: black;
-    margin-bottom: 0.3125rem;
-    display: block;
-    font-family: 'GreekFreak';
-    border: 0.1875rem solid black;
-    border-radius: 3.125rem;
-    height: 1.875rem;
-    padding-top: 0.3125rem; /* Ajusta el centrado del texto */
-}
-
-.dropdown-select {
-    background-color: #fda839;
-    color: black;
-    font-size: 1rem;
-    font-weight: bold;
-    padding: 0.75rem 1.25rem;
-    border: 0.1875rem solid black;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    appearance: none;
-    outline: none;
-    box-shadow: 0rem 0.25rem 0.5rem rgba(0, 0, 0, 0.3);
-    transition: transform 0.2s;
-    width: 100%;
-    padding-right: 2.5rem;
-}
-
-.dropdown-select:hover {
-    transform: scale(1.05);
-}
-
-/* Flecha personalizada */
-.dropdown-container::after {
-    content: '▼';
-    position: relative;
-    left: 10rem;
-    bottom: 1.875rem;
-    transform: translateY(-50%);
-    color: #FFD700;
-    pointer-events: none;
-    font-size: 0.875rem;
+    .dropdown-label {
+        font-size: 1.2rem;
+        margin-top: -1rem;
+        display: block;
+        border: 0.1875rem solid black;
+        border-radius: 3.125rem;
+        height: 1.875rem;
+        padding-top: 0.3125rem;
+    }
+    
+    .dropdown-select {
+        font-size: 1rem;
+        padding: 0.75rem 1.25rem;
+        border: 0.1875rem solid black;
+        border-radius: 0.5rem;
+        width: 100%;
+        padding-right: 1.5rem;
+    }
+    
 }

@@ -23,6 +23,9 @@ export class SingleplayerGamePageComponent implements OnInit {
     vidas: 3 //vidas jugador
   }
 
+  categoriaElegida?: string;    //categoria elegida por el usuario en el menu singleplayer
+  dificultadElegida?: string;   //dificultad elegida por el usuario en el menu singleplayer
+
   loading: boolean = false;
 
   preguntas: PreguntaApi[] = [];  //arrayDePreguntas al que van las respuestas de la api
@@ -54,13 +57,21 @@ export class SingleplayerGamePageComponent implements OnInit {
       }
     } else {  //si el jugador no tiene mas vidas, navego a la pagina de endgame y llevo los datos de puntos y nombre del jugador
       this.gameService.setPartidaTerminada(true); //habilito a que se pueda ir a la pantalla de endgame (esto porque usamos un guard para que si no se jugo ninguna partida, no se pueda ir a la pantalla de engame)
-      this.router.navigate(['/endgame', 'singleplayer', this.jugador.nombre.trim(), this.jugador.puntos]);
+      const categoria = this.categoriaElegida ?? "any"; //si la categoria era undefined, se le asigna any, si no lo era, se queda con el valor que tenia
+      const dificultad = this.dificultadElegida ?? "any"; //si la dificultad era undefined, se le asigna any, si no lo era, se queda con el valor que tenia
+      //this.router.navigate(['/endgame', 'singleplayer', this.jugador.nombre.trim(), this.jugador.puntos, categoria, dificultad]);
+      this.router.navigate(['/endgame/singleplayer', this.jugador.nombre.trim(), this.jugador.puntos, categoria, dificultad]);
     }
   }
 
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe(param => {this.jugador.nombre = param["nombre"]});    //recibo el nombre del jugador a traves de la url
+    this.activatedRoute.params.subscribe(param => {
+      this.jugador.nombre = param["nombre"];   //recibo el nombre del jugador a traves de la url
+      this.categoriaElegida = param["categoria"] === 'any' ? undefined : param["categoria"];     //si la categoria es any se le asigna undefined, si no, se le asigna la elegida
+      this.dificultadElegida = param["dificultad"] === 'any' ? undefined : param["dificultad"];  //si la dificultad es any se le asigna undefined, si no, se le asigna la elegida
+    });
+
     this.getInfoApi();
   }
 
@@ -69,7 +80,7 @@ export class SingleplayerGamePageComponent implements OnInit {
   getInfoApi() {
     this.loading = true;  //inicio el estado de carga
   
-    this.apiService.getInfoApi().subscribe({
+    this.apiService.getInfoApi(this.categoriaElegida, this.dificultadElegida).subscribe({
       next: (info) => {
         this.preguntas = this.mapearPreguntas(info.results);  //mapeo el array traido de la api y se lo asigno al array de preguntas
         this.loading = false;  //finalizo el estado de carga si es que se recibe la respuesta

@@ -12,8 +12,19 @@ export class ApiService {
   private urlBase = environment.urlBase;
   constructor(private http:HttpClient) { }
 
-  getInfoApi(): Observable<ApiTriviaResponse> {
-    return this.http.get<ApiTriviaResponse>(this.urlBase);
+  getInfoApi(categoria?: string, dificultad?: string): Observable<ApiTriviaResponse> {
+
+    let url = this.urlBase;
+
+    if (categoria) {
+      url = url + `&category=${categoria}`;  //le agregamos categoria a la url si la tiene (para el singleplayer)
+    }
+
+    if (dificultad) {
+      url = url + `&difficulty=${dificultad}`; //le agregamos dificultad a la url si la tiene (para el singleplayer)
+    }
+
+    return this.http.get<ApiTriviaResponse>(url);
   }
 
 }
