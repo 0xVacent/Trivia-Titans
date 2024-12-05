@@ -72,6 +72,13 @@ export class SingleplayerGamePageComponent implements OnInit {
       this.dificultadElegida = param["dificultad"] === 'any' ? undefined : param["dificultad"];  //si la dificultad es any se le asigna undefined, si no, se le asigna la elegida
     });
 
+    const dificultadesValidas = ["easy", "medium", "hard", undefined];
+    const categoriasValidas = ["9", "17", "21", "22", "23", undefined];
+
+    if (!dificultadesValidas.includes(this.dificultadElegida) || !categoriasValidas.includes(this.categoriaElegida)) {
+      this.router.navigateByUrl("");  //si no se recibio una categoria o dificultad valida por parametro de la url, se envia a el menu de inicio
+    }
+
     this.getInfoApi();
   }
 
